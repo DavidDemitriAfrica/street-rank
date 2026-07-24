@@ -1,0 +1,11 @@
+slug,label,erank,erank_norm,k90
+grid-100m,Perfect 100 m grid,1.9,2.0,2
+grid-uneven,"Grid, unevenly spaced",1.9,2.0,2
+grid-staggered,Grid with offset cross streets,3.3,4.5,15
+grid-broken,Grid with 30% gaps,3.6,8.2,30
+patchwork,Four grids at different angles,5.1,4.7,210
+radial,Spokes and rings,88.2,100.9,327
+random-chords,"Random straight segments, 400 km",131.1,242.2,469
+curves-200km,"Random curves, 200 km",250.2,250.2,452
+curves-400km,"Random curves, 400 km",149.9,247.9,465
+curves-800km,"Random curves, 800 km",59.1,258.8,460

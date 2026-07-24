@@ -1,0 +1,1226 @@
+612 cities, window 5000 m
+  fetched philadelphia
+  fetched manhattan
+  fetched chicago
+  fetched salt-lake-city
+  fetched washington-dc
+  fetched savannah
+  fetched phoenix
+  fetched portland
+  fetched houston
+  fetched boston
+  fetched san-francisco
+  fetched los-angeles
+  fetched toronto
+  fetched la-plata
+  fetched buenos-aires
+  fetched mexico-city
+  fetched brasilia
+  fetched rio-de-janeiro
+  fetched sao-paulo
+  fetched bogota
+  fetched santiago
+  fetched lima
+  fetched madrid
+  fetched seville
+  fetched barcelona
+  fetched lisbon
+  fetched amsterdam
+  fetched paris
+  fetched london
+  fetched berlin
+  fetched mannheim
+  fetched prague
+  fetched vienna
+  fetched turin
+  fetched rome
+  fetched venice
+  fetched moscow
+  fetched st-petersburg
+  fetched athens
+  fetched istanbul
+  fetched tehran
+  fetched tel-aviv
+  fetched dubai
+  fetched tunis
+  fetched cairo
+  fetched fes
+  fetched marrakesh
+  fetched lagos
+  fetched casablanca
+  fetched nairobi
+  fetched johannesburg
+  fetched delhi
+  fetched mumbai
+  fetched chandigarh
+  fetched beijing
+  fetched islamabad
+  fetched xian
+  fetched shanghai
+  fetched kyoto
+  fetched tokyo
+  fetched bangkok
+  fetched osaka
+  fetched seoul
+  fetched hanoi
+  fetched singapore
+  fetched jakarta
+  fetched manila
+  fetched sydney
+  fetched adelaide
+  fetched melbourne
+  fetched w-cn-shenzhen
+  fetched w-cn-guangzhou
+  fetched canberra
+  fetched w-cd-kinshasa
+  fetched w-vn-ho-chi-minh-city
+  fetched w-cn-chengdu
+  fetched w-cn-tianjin
+  fetched w-pk-karachi
+  fetched w-cn-wuhan
+  fetched w-pk-lahore
+  fetched w-bd-dhaka
+  fetched w-cn-dongguan
+  fetched w-cn-nanjing
+  fetched w-cn-hangzhou
+  fetched w-cn-foshan
+  fetched w-in-bengaluru
+  fetched w-cn-chongqing
+  fetched w-tw-taipei
+  fetched w-hk-hong-kong
+  fetched w-iq-baghdad
+  fetched w-cn-wuzhong
+  fetched w-cn-qingdao
+  fetched w-cn-shenyang
+  fetched w-in-ahmedabad
+  fetched w-cn-suzhou
+  fetched w-in-hyderabad
+  fetched w-ci-abidjan
+  fetched w-eg-alexandria
+  fetched w-cn-hefei
+  fetched w-cn-dalian
+  fetched w-tz-dar-es-salaam
+  fetched w-ng-kano
+  fetched w-pk-peshawar
+  fetched w-cn-changchun
+  fetched w-sa-jeddah
+  fetched w-cn-harbin
+  fetched w-in-chennai
+  fetched w-cn-xiamen
+  fetched w-in-surat
+  fetched w-in-kolkata
+  fetched w-mm-yangon
+  fetched w-af-kabul
+  fetched w-cn-wuxi
+  fetched w-cn-bao-an
+  fetched w-za-cape-town
+  fetched w-cn-jinan
+  fetched w-ml-bamako
+  fetched w-sa-riyadh
+  fetched w-hk-new-territories
+  fetched w-cn-taiyuan
+  fetched w-bd-chattogram
+  fetched w-et-addis-ababa
+  fetched w-cn-zhengzhou
+  fetched w-cn-zhongshan
+  fetched w-cn-nanning
+  fetched w-cn-kunming
+  fetched w-pk-faisalabad
+  fetched w-ae-dubai
+  fetched w-cn-shantou
+  fetched w-cn-fuzhou
+  fetched w-cn-ningbo
+  fetched w-ng-ibadan
+  fetched w-cn-shijiazhuang
+  fetched w-tr-ankara
+  fetched w-cn-puyang
+  fetched w-cn-tangshan
+  fetched w-cn-lueliang
+  fetched w-za-durban
+  fetched w-cn-shiyan
+  fetched w-jp-yokohama
+  fetched w-kp-pyongyang
+  fetched w-cn-changzhou
+  fetched w-kr-busan
+  fetched w-in-pune
+  fetched w-tr-bursa
+  fetched w-in-jaipur
+  fetched w-cn-guiyang
+  fetched w-cn-ueruemqi
+  fetched w-cn-changsha
+  fetched w-kr-incheon
+  fetched w-id-surabaya
+  fetched w-ve-caracas
+  fetched w-cn-lanzhou
+  fetched w-ua-kyiv
+  fetched w-tr-izmir
+  fetched w-cn-haikou
+  fetched w-cn-zibo
+  fetched w-cn-huizhou
+  fetched w-tw-taichung
+  fetched w-au-brisbane
+  fetched w-ec-quito
+  fetched w-ao-luanda
+  fetched w-cn-baoding
+  fetched w-tw-kaohsiung
+  fetched w-ec-guayaquil
+  fetched w-br-belo-horizonte
+  fetched w-in-kanpur
+  fetched w-cn-bazhong
+  fetched w-cn-minhang
+  fetched w-ng-abuja
+  fetched w-bd-gazipur
+  fetched w-br-salvador
+  fetched w-cn-linyi
+  fetched w-sn-dakar
+  fetched w-vn-haiphong
+  fetched w-id-bekasi
+  fetched w-in-navi-mumbai
+  fetched w-so-mogadishu
+  fetched w-cn-yunfu
+  fetched w-id-bandung
+  fetched w-pk-gujranwala
+  fetched w-cn-huai-an
+  fetched w-id-medan
+  fetched w-in-lucknow
+  fetched w-bf-ouagadougou
+  fetched w-gh-kumasi
+  fetched w-br-fortaleza
+  fetched w-in-nagpur
+  fetched w-co-cali
+  fetched w-kr-daegu
+  prefetch w-cn-wenzhou failed: overpass failed for w-cn-wenzhou.json: HTTP 504
+  fetched w-cn-nanchang
+  fetched w-az-baku
+  fetched w-au-perth
+  fetched w-jp-nagoya
+  fetched w-dz-algiers
+  fetched w-cn-hohhot
+  fetched w-cn-shaoxing
+  fetched w-us-queens
+  fetched w-cn-baoshan
+  fetched w-cn-nantong
+  fetched w-tr-gaziantep
+  fetched w-cn-yantai
+  fetched w-br-manaus
+  fetched w-zm-lusaka
+  fetched w-cd-lubumbashi
+  fetched w-do-santo-domingo
+  fetched w-tg-lome
+  prefetch w-ir-mashhad failed: overpass failed for w-ir-mashhad.json: HTTP 504
+  fetched w-cu-havana
+  fetched w-id-depok
+  fetched w-cn-zhuhai
+  fetched w-cn-baotou
+  fetched w-pk-multan
+  fetched w-ng-port-harcourt
+  fetched w-cn-qingyang
+  fetched w-za-pretoria
+  fetched w-ar-cordoba
+  fetched w-in-coimbatore
+  fetched w-cn-kunshan
+  fetched w-cd-mbuji-mayi
+  fetched w-sy-aleppo
+  fetched w-cn-zunyi
+  fetched w-iq-al-mawsil-al-jadidah
+  fetched w-bo-la-paz
+  fetched w-cn-weifang
+  fetched w-co-medellin
+  fetched w-iq-al-basrah-al-qadimah
+  fetched w-uz-tashkent
+  fetched w-sd-khartoum
+  fetched w-in-indore
+  fetched w-gh-accra
+  fetched w-de-hamburg
+  fetched w-br-curitiba
+  fetched w-gn-conakry
+  fetched w-ro-bucharest
+  fetched w-ke-kakamega
+  fetched w-ng-kaduna
+  fetched w-sd-omdurman
+  fetched w-mx-tijuana
+  fetched w-bo-santa-cruz-de-la-sierra
+  fetched w-ca-montreal
+  fetched w-ng-benin-city
+  fetched w-by-minsk
+  prefetch w-cn-lianyungang failed: overpass failed for w-cn-lianyungang.json: HTTP 504
+  fetched w-pl-warsaw
+  fetched w-hu-budapest
+  fetched w-mx-puebla
+  fetched w-ve-maracaibo
+  fetched w-za-soweto
+  fetched w-ma-rabat
+  fetched w-mx-ecatepec-de-morelos
+  fetched w-ve-valencia
+  fetched w-ru-novosibirsk
+  fetched w-br-recife
+  fetched w-mx-leon-de-los-aldama
+  fetched w-ng-onitsha
+  fetched w-nz-auckland
+  fetched w-zw-harare
+  fetched w-lr-monrovia
+  fetched w-ug-kampala
+  fetched w-br-goiania
+  fetched w-se-stockholm
+  fetched w-mx-santiago-de-queretaro
+  fetched w-mx-ciudad-juarez
+  fetched w-us-san-antonio
+  fetched w-ru-yekaterinburg
+  fetched w-de-munich
+  fetched w-br-belem
+  fetched w-mx-zapopan
+  fetched w-ua-kharkiv
+  fetched w-py-asuncion
+  fetched w-it-milan
+  fetched w-td-n-djamena
+  fetched w-us-san-diego
+  fetched w-cm-douala
+  fetched w-br-porto-alegre
+  fetched w-mg-antananarivo
+  fetched w-us-dallas
+  fetched w-ne-niamey
+  fetched w-ly-tripoli
+  fetched w-rs-belgrade
+  fetched w-cm-yaounde
+  fetched w-ru-nizhniy-novgorod
+  fetched w-mz-maputo
+  fetched w-cd-kananga
+  fetched w-ru-kazan
+  fetched w-ve-barquisimeto
+  fetched w-ht-port-au-prince
+  fetched w-ke-mombasa
+  fetched w-co-barranquilla
+  fetched w-ru-chelyabinsk
+  fetched w-mx-merida
+  fetched w-ca-calgary
+  fetched w-do-santiago-de-los-caballeros
+  fetched w-uy-montevideo
+  fetched w-mr-nouakchott
+  fetched w-mz-matola
+  fetched w-pe-arequipa
+  fetched w-sn-pikine
+  fetched w-ru-samara
+  fetched w-ng-aba
+  fetched w-cd-kisangani
+  fetched w-dk-copenhagen
+  fetched w-gb-birmingham
+  fetched w-bg-sofia
+  fetched w-rw-kigali
+  fetched w-ru-rostov-on-don
+  fetched w-mx-monterrey
+  fetched w-ru-omsk
+  fetched w-mw-lilongwe
+  fetched w-ru-ufa
+  fetched w-tz-mwanza
+  fetched w-ng-maiduguri
+  fetched w-no-oslo
+  fetched w-ru-krasnoyarsk
+  fetched w-sn-touba
+  fetched w-za-gqeberha
+  fetched w-ru-voronezh
+  fetched w-ng-sokoto
+  fetched w-ng-ilorin
+  fetched w-ma-tangier
+  fetched w-pe-trujillo
+  fetched w-mx-mexicali
+  fetched w-br-maceio
+  fetched w-br-campinas
+  fetched w-de-koeln
+  fetched w-ng-jos
+  fetched w-cg-pointe-noire
+  fetched w-be-brussels
+  fetched w-ie-dublin
+  fetched w-ru-volgograd
+  fetched w-ca-edmonton
+  fetched w-ca-ottawa
+  fetched w-ua-odesa
+  fetched w-us-san-jose
+  fetched w-gt-guatemala-city
+  fetched w-us-fort-worth
+  fetched w-us-jacksonville
+  fetched w-ru-perm
+  fetched w-ng-zaria
+  fetched w-ni-managua
+  fetched w-ua-dnipro
+  fetched w-us-austin
+  fetched w-ve-ciudad-guayana
+  fetched w-jm-kingston
+  fetched w-mx-chihuahua
+  fetched w-br-sao-luis
+  fetched w-ar-rosario
+  fetched w-co-cartagena
+  fetched w-ng-enugu
+  fetched w-ng-warri
+  fetched w-us-charlotte
+  fetched w-it-naples
+  fetched w-br-campo-grande
+  fetched w-mw-blantyre
+  fetched w-ua-donetsk
+  fetched w-ru-krasnodar
+  fetched w-us-columbus
+  fetched w-mx-cancun
+  fetched w-bf-bobo-dioulasso
+  fetched w-us-indianapolis
+  fetched w-br-natal
+  fetched w-fr-marseille
+  fetched w-za-soshanguve
+  fetched w-nl-rotterdam
+  fetched w-br-duque-de-caxias
+  fetched w-br-teresina
+  fetched w-ao-mulenvos
+  fetched w-ru-saratov
+  fetched w-br-nova-iguacu
+  fetched w-ga-libreville
+  fetched w-br-sao-bernardo-do-campo
+  fetched w-za-pietermaritzburg
+  fetched w-ci-bouake
+  fetched w-bo-cochabamba
+  fetched w-br-joao-pessoa
+  fetched w-es-valencia
+  fetched w-pl-krakow
+  fetched w-cd-bukavu
+  fetched w-cf-bangui
+  fetched w-mx-hermosillo
+  fetched w-mx-culiacan
+  fetched w-ve-barcelona
+  fetched w-sl-freetown
+  fetched w-hn-san-pedro-sula
+  fetched w-us-seattle
+  fetched w-dz-oran
+  fetched w-ru-tyumen
+  prefetch w-hn-tegucigalpa failed: overpass failed for w-hn-tegucigalpa.json: HTTP 504
+  fetched w-br-uberlandia
+  fetched w-ca-winnipeg
+  fetched w-mx-morelia
+  fetched w-br-sorocaba
+  fetched w-co-cucuta
+  fetched w-us-denver
+  fetched w-br-osasco
+  fetched w-br-sao-jose-dos-campos
+  fetched w-mx-san-luis-potosi
+  fetched w-lv-riga
+  fetched w-ca-mississauga
+  fetched w-ua-lviv
+  fetched w-mx-aguascalientes
+  fetched w-ua-zaporizhzhya
+  fetched w-mx-saltillo
+  fetched w-do-santo-domingo-oeste
+  fetched w-br-ribeirao-preto
+  fetched w-mx-torreon
+  fetched w-ru-tolyatti
+  fetched w-es-zaragoza
+  fetched w-us-oklahoma-city
+  fetched w-ba-sarajevo
+  fetched w-pl-wroclaw
+  fetched w-br-joinville
+  fetched w-hr-zagreb
+  fetched w-us-nashville
+  fetched w-fi-helsinki
+  fetched w-ca-vancouver
+  fetched w-ca-brampton
+  fetched w-mx-acapulco-de-juarez
+  fetched w-mx-tlaquepaque
+  fetched w-it-palermo
+  fetched w-ru-izhevsk
+  fetched w-de-frankfurt-am-main
+  fetched w-br-aracaju
+  fetched w-us-detroit
+  fetched w-br-jaboatao-dos-guararapes
+  fetched w-ve-maturin
+  fetched w-pl-lodz
+  fetched w-md-chisinau
+  fetched w-ru-barnaul
+  fetched w-gb-glasgow
+  fetched w-ru-irkutsk
+  fetched w-au-gold-coast
+  fetched w-ru-khabarovsk
+  fetched w-de-duesseldorf
+  fetched w-ru-ulyanovsk
+  fetched w-ru-yaroslavl
+  fetched w-ru-vladivostok
+  fetched w-ua-kryvyy-rih
+  fetched w-ru-makhachkala
+  fetched w-de-essen
+  fetched w-se-gothenburg
+  fetched w-de-stuttgart
+  fetched w-it-genoa
+  fetched w-es-malaga
+  fetched w-gb-manchester
+  fetched w-de-dortmund
+  fetched w-de-dresden
+  fetched w-nz-christchurch
+  fetched w-au-sunshine-coast
+  fetched w-nz-wellington
+  fetched w-nz-manukau-city
+  fetched w-au-central-coast
+  fetched w-ru-tomsk
+  fetched w-pg-port-moresby
+  fetched w-au-logan-city
+  fetched w-au-newcastle
+  fetched w-au-hobart
+  fetched ph-quezon
+  fetched ph-manila
+  fetched ph-davao
+  fetched ph-caloocan
+  fetched ph-zamboanga
+  fetched ph-cebu
+  fetched ph-antipolo
+  fetched ph-pasig
+  fetched ph-dasmarinas
+  fetched ph-cagayan-de-oro
+  fetched ph-valenzuela
+  fetched ph-general-santos
+  fetched ph-paranaque
+  fetched ph-san-jose-del-monte
+  fetched ph-bacoor
+  fetched ph-bacolod
+  fetched ph-las-pinas
+  fetched ph-binan
+  fetched ph-calamba
+  fetched ph-muntinlupa
+  fetched ph-lapu-lapu
+  fetched ph-angeles
+  fetched ph-general-trias
+  fetched ph-imus
+  fetched ph-iloilo
+  fetched ph-marikina
+  fetched ph-mandaluyong
+  fetched ph-pasay
+  fetched ph-rodriguez
+  fetched ph-santa-rosa
+  fetched ph-tarlac
+  fetched ph-taytay
+  fetched ph-malabon
+  fetched ph-lipa
+  fetched ph-cainta
+  fetched ph-butuan
+  fetched ph-cotabato
+  fetched ph-san-fernando
+  fetched ph-baguio
+  fetched ph-iligan
+  fetched ph-cabuyao
+  fetched ph-mandaue
+  fetched ph-batangas
+  fetched ph-san-pedro
+  fetched ph-cabanatuan
+  fetched ph-tanza
+  fetched ph-santa-maria
+  fetched ph-binangonan
+  fetched ph-puerto-princesa
+  fetched ph-silang
+  fetched ph-mabalacat
+  fetched ph-san-pablo
+  fetched ph-tagum
+  fetched ph-lucena
+  fetched ph-san-mateo
+  fetched ph-malolos
+  fetched ph-olongapo
+  fetched ph-talisay
+  fetched ph-marilao
+  fetched ph-marawi
+  fetched ph-tacloban
+  fetched ph-navotas
+  fetched ph-ormoc
+  fetched ph-naic
+  fetched ph-meycauayan
+  fetched ph-trece-martires
+  fetched ph-sto.-tomas
+  fetched ph-valencia
+  fetched ph-panabo
+  fetched ph-kabankalan
+  fetched ph-legazpi
+  fetched ph-naga
+  fetched ph-tanauan
+  fetched ph-san-carlos
+  fetched ph-toledo
+  fetched ph-pagadian
+  fetched ph-koronadal
+  fetched ph-malaybalay
+  fetched ph-bago
+  fetched ph-digos
+  fetched w-au-geelong
+  fetched ph-calbayog
+  fetched ph-sorsogon
+  fetched ph-mexico
+  fetched ph-lubao
+  fetched ph-roxas
+  fetched w-au-wollongong
+  fetched ph-san-miguel
+  fetched ph-gen.-mariano-alvarez
+  fetched ph-polomolok
+  fetched ph-concepcion
+  fetched ph-baliwag
+  fetched ph-surigao
+  fetched ph-tuguegarao
+  fetched ph-dagupan
+  fetched ph-pandi
+  fetched ph-capas
+  fetched ph-cadiz
+  fetched ph-ilagan
+  fetched ph-kidapawan
+  fetched ph-liloan
+  fetched ph-sariaya
+  fetched ph-mariveles
+  fetched ph-san-jose
+  fetched ph-danao
+  fetched ph-datu-odin-sinsuat
+  fetched ph-minglanilla
+  fetched ph-jolo
+  fetched ph-isabela
+  fetched ph-sagay
+  fetched ph-arayat
+  fetched ph-santiago
+  fetched ph-calapan
+  fetched ph-bocaue
+  fetched ph-mati
+  fetched ph-consolacion
+  fetched ph-floridablanca
+  fetched ph-tanay
+  fetched ph-malasiqui
+  fetched ph-porac
+  fetched ph-cauayan
+  fetched ph-san-jose-occidental-mindoro
+  fetched ph-ozamiz
+  fetched ph-la-trinidad
+  fetched ph-dumaguete
+  fetched ph-tabaco
+  fetched ph-nasugbu
+  fetched ph-norzagaray
+  fetched ph-carcar
+  fetched ph-naga-cebu
+  fetched ph-daraga
+  fetched ph-urdaneta
+  fetched ph-gingoog
+  fetched ph-guagua
+  fetched ph-talavera
+  fetched ph-hagonoy
+  fetched ph-silay
+  fetched ph-candelaria
+  fetched ph-san-juan
+  fetched ph-magalang
+  fetched ph-san-carlos-negros-occidental
+  fetched ph-dipolog
+  fetched ph-angono
+  fetched ph-rosario
+  fetched ph-bongao
+  fetched ph-gapan
+  fetched ph-guimba
+  fetched ph-santa-cruz
+  fetched ph-bayawan
+  fetched ph-bayambang
+  fetched ph-vigan
+  fetched ph-santo-tomas
+  fetched ph-sultan-kudarat
+[1/612] chicago                      erank=  24.6 rot= 88.5 km=  405.1 (1.8s)
+[2/612] manhattan                    erank=  19.4 rot= 29.5 km=  384.3 (1.6s)
+[3/612] philadelphia                 erank=  14.6 rot=  9.5 km=  548.7 (1.7s)
+[4/612] washington-dc                erank=  41.1 rot=  0.5 km=  397.1 (1.7s)
+[5/612] savannah                     erank=  22.9 rot= 17.5 km=  296.7 (1.2s)
+[6/612] salt-lake-city               erank=  30.5 rot= 89.5 km=  363.1 (1.4s)
+[7/612] portland                     erank=  36.8 rot=  0.5 km=  485.6 (1.8s)
+[8/612] phoenix                      erank=  32.7 rot=  0.5 km=  353.9 (1.3s)
+[9/612] houston                      erank=  59.6 rot= 89.5 km=  493.5 (1.7s)
+[10/612] boston                       erank=  87.6 rot= 88.5 km=  442.5 (1.9s)
+[11/612] san-francisco                erank=  36.1 rot= 80.5 km=  492.8 (1.7s)
+[12/612] los-angeles                  erank=  66.8 rot= 28.5 km=  407.7 (1.7s)
+[13/612] toronto                      erank=  28.7 rot= 73.5 km=  337.9 (1.5s)
+[14/612] mexico-city                  erank=  53.3 rot=  7.5 km=  498.0 (1.6s)
+[15/612] la-plata                     erank=  21.3 rot= 42.5 km=  426.8 (7.6s)
+[16/612] buenos-aires                 erank= 112.7 rot= 69.5 km=  411.4 (1.5s)
+[17/612] brasilia                     erank=  91.0 rot= 17.5 km=  299.7 (4.4s)
+[18/612] sao-paulo                    erank= 103.8 rot= 43.5 km=  466.2 (1.8s)
+[19/612] rio-de-janeiro               erank=  63.1 rot= 70.5 km=  259.3 (1.3s)
+[20/612] bogota                       erank=  55.6 rot= 38.5 km=  454.3 (3.2s)
+[21/612] lima                         erank=  59.8 rot= 82.5 km=  501.2 (3.5s)
+[22/612] santiago                     erank=  69.5 rot= 76.5 km=  456.3 (5.0s)
+[23/612] barcelona                    erank=  34.1 rot= 45.5 km=  655.6 (3.3s)
+[24/612] madrid                       erank=  53.0 rot=  3.5 km=  537.6 (2.2s)
+[25/612] seville                      erank=  72.3 rot=  5.5 km=  501.8 (1.8s)
+[26/612] lisbon                       erank=  70.9 rot= 55.5 km=  333.5 (1.8s)
+[27/612] paris                        erank=  68.8 rot= 19.5 km=  531.9 (2.3s)
+[28/612] london                       erank=  77.2 rot= 74.5 km=  538.4 (3.1s)
+[29/612] amsterdam                    erank=  86.8 rot= 88.5 km=  517.0 (2.3s)
+[30/612] berlin                       erank= 140.7 rot= 29.5 km=  320.7 (2.3s)
+[31/612] mannheim                     erank=  81.3 rot= 30.5 km=  361.0 (1.7s)
+[32/612] vienna                       erank= 106.0 rot= 51.5 km=  445.6 (2.0s)
+[33/612] prague                       erank=  96.0 rot= 88.5 km=  406.9 (2.0s)
+[34/612] rome                         erank=  88.7 rot= 47.5 km=  517.3 (2.1s)
+[35/612] turin                        erank=  38.5 rot= 26.5 km=  538.1 (1.9s)
+[36/612] venice                       erank=  41.6 rot= 38.5 km=  273.2 (1.8s)
+[37/612] athens                       erank=  54.0 rot= 11.5 km=  663.1 (2.8s)
+[38/612] moscow                       erank= 174.3 rot= 39.5 km=  315.6 (4.2s)
+[39/612] st-petersburg                erank=  98.5 rot=  1.5 km=  317.5 (5.0s)
+[40/612] istanbul                     erank=  66.1 rot=  1.5 km=  491.6 (7.8s)
+[41/612] tehran                       erank=  67.3 rot= 87.5 km=  549.1 (7.9s)
+[42/612] tel-aviv                     erank=  66.7 rot= 13.5 km=  402.4 (1.6s)
+[43/612] dubai                        erank=  84.8 rot= 28.5 km=  418.8 (1.7s)
+[44/612] cairo                        erank=  48.3 rot= 14.5 km=  644.8 (2.4s)
+[45/612] tunis                        erank=  58.1 rot= 82.5 km=  465.9 (1.6s)
+[46/612] fes                          erank= 149.7 rot= 33.5 km=  236.5 (2.3s)
+[47/612] marrakesh                    erank= 109.5 rot= 60.5 km=  325.2 (1.5s)
+[48/612] casablanca                   erank=  92.0 rot= 53.5 km=  404.4 (1.6s)
+[49/612] lagos                        erank= 159.9 rot= 89.5 km=  197.2 (1.1s)
+[50/612] nairobi                      erank=  88.3 rot= 63.5 km=  335.6 (1.4s)
+[51/612] johannesburg                 erank=  44.6 rot= 82.5 km=  367.7 (1.6s)
+[52/612] delhi                        erank=  66.1 rot= 32.5 km=  463.4 (5.9s)
+[53/612] mumbai                       erank=  68.9 rot= 13.5 km=  239.3 (1.3s)
+[54/612] chandigarh                   erank=  33.2 rot= 54.5 km=  444.2 (2.3s)
+[55/612] islamabad                    erank=  30.9 rot= 57.5 km=  406.9 (1.4s)
+[56/612] beijing                      erank=  45.1 rot= 88.5 km=  302.9 (1.6s)
+[57/612] shanghai                     erank=  74.3 rot= 67.5 km=  428.3 (2.7s)
+[58/612] xian                         erank=  23.5 rot= 89.5 km=  368.1 (1.1s)
+[59/612] kyoto                        erank=  36.8 rot= 89.5 km=  429.5 (1.5s)
+[60/612] tokyo                        erank=  59.3 rot= 86.5 km=  665.8 (2.2s)
+[61/612] osaka                        erank=  37.8 rot=  2.5 km=  690.3 (2.2s)
+[62/612] seoul                        erank=  71.8 rot= 88.5 km=  443.7 (2.5s)
+[63/612] bangkok                      erank=  81.4 rot=  9.5 km=  411.5 (1.8s)
+[64/612] hanoi                        erank= 138.7 rot=  0.5 km=  302.1 (1.5s)
+[65/612] singapore                    erank=  94.7 rot= 39.5 km=  379.5 (2.5s)
+[66/612] jakarta                      erank=  63.8 rot= 87.5 km=  526.9 (2.4s)
+[67/612] manila                       erank=  66.7 rot= 46.5 km=  458.7 (1.6s)
+[68/612] sydney                       erank=  71.9 rot=  9.5 km=  361.4 (1.7s)
+[69/612] melbourne                    erank=  38.5 rot=  7.5 km=  548.0 (2.3s)
+[70/612] adelaide                     erank=  27.4 rot= 86.5 km=  325.0 (1.5s)
+[71/612] canberra                     erank=  73.3 rot=  7.5 km=  235.7 (1.9s)
+[72/612] w-cn-shenzhen                erank=  33.3 rot= 89.5 km=  368.2 (1.3s)
+[73/612] w-cn-guangzhou               erank= 107.9 rot= 89.5 km=  328.1 (1.3s)
+[74/612] w-cd-kinshasa                erank=  61.8 rot= 17.5 km=  396.3 (1.1s)
+[75/612] w-vn-ho-chi-minh-city        erank= 130.4 rot= 11.5 km=  326.5 (1.5s)
+[76/612] w-cn-chengdu                 erank=  68.0 rot= 28.5 km=  326.8 (1.1s)
+[77/612] w-pk-lahore                  erank= 103.6 rot=  1.5 km=  413.4 (1.6s)
+[78/612] w-pk-karachi                 erank=  39.7 rot= 63.5 km=  629.6 (2.4s)
+[79/612] w-cn-tianjin                 erank=  89.2 rot=  0.5 km=  413.4 (1.3s)
+[80/612] w-cn-wuhan                   erank= 148.7 rot= 27.5 km=  317.4 (2.6s)
+[81/612] w-bd-dhaka                   erank=  85.6 rot= 89.5 km=  461.4 (4.6s)
+[82/612] w-cn-dongguan                erank= 103.1 rot= 35.5 km=  263.3 (1.3s)
+[83/612] w-cn-nanjing                 erank= 115.2 rot= 89.5 km=  217.8 (1.1s)
+[84/612] w-cn-hangzhou                erank= 104.1 rot= 86.5 km=  331.6 (2.1s)
+[85/612] w-cn-foshan                  erank=  53.4 rot= 89.5 km=  313.2 (1.3s)
+[86/612] w-in-bengaluru               erank=  73.5 rot= 89.5 km=  511.5 (1.9s)
+[87/612] w-tw-taipei                  erank=  37.5 rot=  1.5 km=  495.6 (1.8s)
+[88/612] w-cn-chongqing               erank= 104.7 rot= 89.5 km=  317.8 (1.3s)
+[89/612] w-hk-hong-kong               erank=  90.8 rot= 85.5 km=  271.8 (2.5s)
+[90/612] w-iq-baghdad                 erank=  66.0 rot= 43.5 km=  417.1 (3.6s)
+[91/612] w-cn-wuzhong                 erank=  73.2 rot= 89.5 km=  149.8 (1.0s)
+[92/612] w-cn-qingdao                 erank= 109.1 rot= 89.5 km=  260.8 (2.7s)
+[93/612] w-cn-shenyang                erank=  83.7 rot=  1.5 km=  321.9 (1.1s)
+[94/612] w-in-hyderabad               erank=  60.5 rot= 10.5 km=  591.9 (2.2s)
+[95/612] w-cn-suzhou                  erank=  71.0 rot= 82.5 km=  296.4 (1.3s)
+[96/612] w-in-ahmedabad               erank=  89.8 rot=  0.5 km=  408.1 (1.6s)
+[97/612] w-ci-abidjan                 erank=  99.5 rot=  0.5 km=  323.2 (2.2s)
+[98/612] w-tz-dar-es-salaam           erank= 107.3 rot= 62.5 km=  292.2 (1.4s)
+[99/612] w-eg-alexandria              erank=  42.0 rot= 64.5 km=  517.2 (1.6s)
+[100/612] w-cn-harbin                  erank=  96.7 rot= 26.5 km=  413.2 (1.3s)
+[101/612] w-cn-hefei                   erank=  77.6 rot= 88.5 km=  334.3 (3.4s)
+[102/612] w-cn-dalian                  erank=  89.2 rot= 89.5 km=  350.5 (1.3s)
+[103/612] w-ng-kano                    erank=  95.9 rot=  0.5 km=  453.5 (1.5s)
+[104/612] w-za-cape-town               erank=  62.9 rot= 41.5 km=  309.3 (5.1s)
+[105/612] w-pk-peshawar                erank=  73.6 rot= 86.5 km=  520.0 (1.6s)
+[106/612] w-cn-changchun               erank=  45.1 rot= 89.5 km=  348.7 (1.1s)
+[107/612] w-sa-jeddah                  erank=  82.5 rot= 86.5 km=  307.9 (1.2s)
+[108/612] w-in-chennai                 erank=  66.5 rot=  8.5 km=  354.8 (1.8s)
+[109/612] w-in-kolkata                 erank=  90.1 rot= 14.5 km=  357.3 (1.6s)
+[110/612] w-cn-xiamen                  erank=  58.9 rot= 73.5 km=  226.8 (1.1s)
+[111/612] w-in-surat                   erank=  62.6 rot= 81.5 km=  544.7 (2.7s)
+[112/612] w-mm-yangon                  erank= 110.5 rot=  1.5 km=  361.0 (1.9s)
+[113/612] w-cn-bao-an                  erank=  47.2 rot= 47.5 km=  334.0 (1.3s)
+[114/612] w-af-kabul                   erank= 126.9 rot= 34.5 km=  322.3 (2.9s)
+[115/612] w-cn-wuxi                    erank= 132.2 rot= 48.5 km=  300.9 (1.7s)
+[116/612] w-cn-jinan                   erank=  55.8 rot=  0.5 km=  397.7 (12.5s)
+[117/612] w-cn-taiyuan                 erank=  43.8 rot= 88.5 km=  340.9 (1.1s)
+[118/612] w-cn-zhengzhou               erank=  59.6 rot=  0.5 km=  275.6 (1.0s)
+[119/612] w-ml-bamako                  erank=  51.9 rot= 89.5 km=  461.5 (5.4s)
+[120/612] w-sa-riyadh                  erank=  69.6 rot= 65.5 km=  486.7 (1.6s)
+[121/612] w-hk-new-territories         erank= 175.5 rot= 79.5 km=   43.3 (0.9s)
+[122/612] w-cn-shijiazhuang            erank=  43.5 rot= 89.5 km=  256.2 (7.6s)
+[123/612] w-bd-chattogram              erank=  98.0 rot=  0.5 km=  363.7 (3.0s)
+[124/612] w-et-addis-ababa             erank=  87.7 rot= 83.5 km=  438.6 (1.8s)
+[125/612] w-cn-kunming                 erank=  80.1 rot= 89.5 km=  372.8 (9.5s)
+[126/612] w-cn-zhongshan               erank=  79.6 rot=  0.5 km=  420.5 (7.9s)
+[127/612] w-cn-nanning                 erank= 117.7 rot= 89.5 km=  247.5 (1.0s)
+[128/612] w-cn-shantou                 erank=  67.9 rot= 89.5 km=  174.9 (3.2s)
+[129/612] w-pk-faisalabad              erank=  32.4 rot= 41.5 km=  583.5 (3.9s)
+[130/612] w-ae-dubai                   erank= 106.0 rot= 57.5 km=  203.7 (4.7s)
+[131/612] w-jp-yokohama                erank=  78.0 rot= 56.5 km=  428.5 (1.7s)
+[132/612] w-cn-fuzhou                  erank=  75.3 rot= 87.5 km=  292.2 (1.2s)
+[133/612] w-cn-ningbo                  erank= 112.7 rot= 15.5 km=  337.0 (1.3s)
+[134/612] w-ng-ibadan                  erank= 193.7 rot= 56.5 km=  267.2 (1.7s)
+[135/612] w-cn-puyang                  erank= 111.1 rot=  0.5 km=  179.2 (0.9s)
+[136/612] w-tr-ankara                  erank= 109.4 rot=  0.5 km=  393.9 (1.6s)
+[137/612] w-cn-shiyan                  erank= 218.0 rot= 85.5 km=  151.9 (1.0s)
+[138/612] w-cn-tangshan                erank=  45.9 rot= 89.5 km=  264.3 (1.1s)
+[139/612] w-cn-lueliang                erank=  94.9 rot= 89.5 km=  154.0 (0.9s)
+[140/612] w-za-durban                  erank=  51.5 rot= 79.5 km=  212.5 (7.9s)
+[141/612] w-cn-changzhou               erank=  92.0 rot=  5.5 km=  318.7 (1.5s)
+[142/612] w-kr-busan                   erank=  90.7 rot= 23.5 km=  317.2 (13.0s)
+[143/612] w-kp-pyongyang               erank= 104.1 rot= 12.5 km=  232.5 (1.3s)
+[144/612] w-cn-zibo                    erank=  86.1 rot=  7.5 km=  183.2 (10.0s)
+[145/612] w-in-pune                    erank=  83.6 rot= 89.5 km=  416.7 (5.6s)
+[146/612] w-tr-bursa                   erank=  44.6 rot=  2.5 km=  694.5 (2.1s)
+[147/612] w-cn-changsha                erank=  83.8 rot= 89.5 km=  297.7 (1.1s)
+[148/612] w-in-jaipur                  erank=  89.0 rot= 12.5 km=  457.9 (4.0s)
+[149/612] w-cn-guiyang                 erank= 118.9 rot= 89.5 km=  256.8 (1.1s)
+[150/612] w-cn-ueruemqi                erank= 112.8 rot= 76.5 km=  334.2 (1.1s)
+[151/612] w-id-surabaya                erank=  60.6 rot= 11.5 km=  577.4 (2.7s)
+[152/612] w-kr-incheon                 erank= 101.5 rot=  3.5 km=  224.0 (1.1s)
+[153/612] w-cn-lanzhou                 erank=  85.2 rot= 16.5 km=  296.0 (1.8s)
+[154/612] w-ve-caracas                 erank= 110.8 rot= 10.5 km=  383.6 (1.7s)
+[155/612] w-ua-kyiv                    erank= 129.4 rot= 14.5 km=  181.6 (1.3s)
+[156/612] w-tr-izmir                   erank=  57.9 rot= 10.5 km=  576.5 (1.8s)
+[157/612] w-cn-huizhou                 erank= 133.2 rot= 89.5 km=  247.9 (1.3s)
+[158/612] w-cn-haikou                  erank= 105.8 rot=  0.5 km=  297.0 (1.2s)
+[159/612] w-tw-taichung                erank=  63.8 rot=  0.5 km=  452.4 (1.5s)
+[160/612] w-in-kanpur                  erank=  80.6 rot= 37.5 km=  384.4 (1.4s)
+[161/612] w-ec-quito                   erank=  87.1 rot= 40.5 km=  417.6 (1.6s)
+[162/612] w-au-brisbane                erank=  82.9 rot=  9.5 km=  374.1 (3.3s)
+[163/612] w-ao-luanda                  erank= 101.6 rot= 24.5 km=  388.7 (1.5s)
+[164/612] w-cn-linyi                   erank=  70.8 rot= 89.5 km=  220.4 (1.0s)
+[165/612] w-cn-baoding                 erank=  51.3 rot= 89.5 km=  158.0 (0.9s)
+[166/612] w-tw-kaohsiung               erank=  33.9 rot= 70.5 km=  532.8 (1.5s)
+[167/612] w-ec-guayaquil               erank=  38.9 rot= 15.5 km=  355.8 (2.1s)
+[168/612] w-br-belo-horizonte          erank=  37.8 rot= 14.5 km=  512.6 (1.7s)
+[169/612] w-cn-minhang                 erank=  71.3 rot= 65.5 km=  251.5 (1.1s)
+[170/612] w-cn-bazhong                 erank= 232.7 rot=  9.5 km=  211.7 (1.0s)
+[171/612] w-br-salvador                erank= 119.8 rot= 17.5 km=  391.1 (1.7s)
+[172/612] w-ng-abuja                   erank=  38.7 rot= 57.5 km=  283.8 (1.2s)
+[173/612] w-bd-gazipur                 erank= 122.6 rot= 78.5 km=  131.4 (1.0s)
+[174/612] w-cn-wenzhou                 erank= 117.9 rot= 89.5 km=  293.2 (4.0s)
+[175/612] w-id-bekasi                  erank=  59.0 rot= 19.5 km=  598.9 (2.3s)
+[176/612] w-sn-dakar                   erank=  72.1 rot=  3.5 km=  366.3 (1.9s)
+[177/612] w-vn-haiphong                erank=  79.5 rot=  0.5 km=  186.0 (1.0s)
+[178/612] w-cn-yunfu                   erank= 166.7 rot=  5.5 km=  184.5 (0.9s)
+[179/612] w-in-navi-mumbai             erank=  97.6 rot= 42.5 km=  266.6 (1.2s)
+[180/612] w-so-mogadishu               erank=  25.4 rot= 70.5 km=  439.2 (1.3s)
+[181/612] w-gh-kumasi                  erank= 155.5 rot=  0.5 km=  297.1 (1.2s)
+[182/612] w-id-bandung                 erank=  75.5 rot= 13.5 km=  519.0 (2.1s)
+[183/612] w-pk-gujranwala              erank=  44.9 rot=  0.5 km=  561.7 (1.3s)
+[184/612] w-cn-huai-an                 erank=  62.0 rot=  1.5 km=  235.6 (0.9s)
+[185/612] w-id-medan                   erank=  56.7 rot=  1.5 km=  452.6 (1.7s)
+[186/612] w-in-lucknow                 erank= 145.3 rot= 23.5 km=  301.7 (1.3s)
+[187/612] w-bf-ouagadougou             erank=  42.4 rot= 76.5 km=  428.2 (1.2s)
+[188/612] w-in-nagpur                  erank=  83.9 rot=  1.5 km=  441.2 (1.5s)
+[189/612] w-br-fortaleza               erank=  49.0 rot= 17.5 km=  310.3 (1.3s)
+[190/612] w-co-cali                    erank=  54.1 rot= 46.5 km=  689.0 (1.8s)
+[191/612] w-au-perth                   erank=  85.3 rot=  0.5 km=  302.2 (1.5s)
+[192/612] w-kr-daegu                   erank=  83.5 rot=  4.5 km=  468.4 (1.4s)
+[193/612] w-dz-algiers                 erank=  93.4 rot= 23.5 km=  403.4 (1.4s)
+[194/612] w-cn-nanchang                erank=  66.2 rot= 26.5 km=  304.9 (1.1s)
+[195/612] w-az-baku                    erank=  80.5 rot= 80.5 km=  187.7 (1.1s)
+[196/612] w-cn-hohhot                  erank=  88.0 rot= 71.5 km=  231.5 (1.0s)
+[197/612] w-jp-nagoya                  erank=  37.6 rot=  0.5 km=  743.8 (1.9s)
+[198/612] w-us-queens                  erank=  27.4 rot= 69.5 km=  435.6 (1.9s)
+[199/612] w-ir-mashhad                 erank=  61.4 rot= 26.5 km=  557.9 (12.4s)
+[200/612] w-cn-shaoxing                erank=  95.1 rot=  0.5 km=  214.9 (1.4s)
+[201/612] w-cn-nantong                 erank=  61.3 rot= 89.5 km=  265.1 (1.1s)
+[202/612] w-cn-baoshan                 erank=  62.3 rot= 67.5 km=  100.8 (1.1s)
+[203/612] w-cn-yantai                  erank=  70.4 rot= 13.5 km=  159.4 (1.0s)
+[204/612] w-tr-gaziantep               erank=  39.7 rot=  3.5 km=  763.0 (2.0s)
+[205/612] w-cd-lubumbashi              erank=  64.2 rot= 62.5 km=  277.3 (1.1s)
+[206/612] w-br-manaus                  erank=  78.2 rot=  0.5 km=  399.3 (1.5s)
+[207/612] w-zm-lusaka                  erank=  98.6 rot= 80.5 km=  287.0 (1.2s)
+[208/612] w-cn-zhuhai                  erank= 110.7 rot= 78.5 km=  137.8 (1.0s)
+[209/612] w-do-santo-domingo           erank=  75.8 rot= 86.5 km=  329.2 (1.2s)
+[210/612] w-tg-lome                    erank=  77.5 rot= 74.5 km=  312.2 (1.2s)
+[211/612] w-pk-multan                  erank=  81.6 rot= 89.5 km=  490.4 (2.2s)
+[212/612] w-cu-havana                  erank=  47.5 rot= 50.5 km=  361.7 (7.9s)
+[213/612] w-id-depok                   erank=  60.7 rot=  5.5 km=  586.1 (2.6s)
+[214/612] w-cn-baotou                  erank=  18.6 rot=  3.5 km=  244.7 (1.0s)
+[215/612] w-in-coimbatore              erank=  75.9 rot= 86.5 km=  463.3 (1.4s)
+[216/612] w-cn-qingyang                erank=  28.3 rot= 81.5 km=  318.1 (1.0s)
+[217/612] w-ng-port-harcourt           erank= 112.0 rot= 87.5 km=  180.7 (1.1s)
+[218/612] w-za-pretoria                erank=  47.3 rot= 85.5 km=  248.7 (1.1s)
+[219/612] w-ar-cordoba                 erank=  46.5 rot= 19.5 km=  478.7 (1.6s)
+[220/612] w-cd-mbuji-mayi              erank= 104.4 rot= 30.5 km=  281.5 (1.1s)
+[221/612] w-sy-aleppo                  erank=  59.2 rot=  0.5 km=  620.7 (1.6s)
+[222/612] w-cn-kunshan                 erank= 108.6 rot= 87.5 km=  220.7 (1.0s)
+[223/612] w-iq-al-mawsil-al-jadidah    erank=  69.5 rot= 66.5 km=  547.6 (1.8s)
+[224/612] w-cn-weifang                 erank= 102.7 rot=  0.5 km=  237.2 (1.0s)
+[225/612] w-cn-zunyi                   erank= 178.2 rot= 47.5 km=  158.7 (1.0s)
+[226/612] w-iq-al-basrah-al-qadimah    erank=  59.3 rot= 60.5 km=  610.8 (1.5s)
+[227/612] w-bo-la-paz                  erank=  90.6 rot= 23.5 km=  507.4 (1.8s)
+[228/612] w-cn-lianyungang             erank= 132.5 rot=  0.5 km=  164.8 (8.4s)
+[229/612] w-co-medellin                erank=  74.2 rot= 10.5 km=  519.5 (1.7s)
+[230/612] w-in-indore                  erank=  55.6 rot=  4.5 km=  584.8 (1.6s)
+[231/612] w-uz-tashkent                erank=  73.8 rot= 39.5 km=  274.5 (1.2s)
+[232/612] w-sd-khartoum                erank=  22.7 rot= 80.5 km=  523.2 (1.4s)
+[233/612] w-de-hamburg                 erank= 126.5 rot= 65.5 km=  287.7 (1.9s)
+[234/612] w-gh-accra                   erank= 109.1 rot= 28.5 km=  277.9 (1.3s)
+[235/612] w-br-curitiba                erank=  43.2 rot= 66.5 km=  403.8 (1.4s)
+[236/612] w-gn-conakry                 erank= 231.0 rot= 10.5 km=  128.6 (0.9s)
+[237/612] w-mx-tijuana                 erank=  90.3 rot= 84.5 km=  468.6 (1.8s)
+[238/612] w-ro-bucharest               erank=  99.3 rot= 79.5 km=  453.5 (1.8s)
+[239/612] w-ke-kakamega                erank= 208.7 rot= 88.5 km=  185.9 (1.5s)
+[240/612] w-ng-kaduna                  erank= 104.5 rot= 85.5 km=  267.7 (1.1s)
+[241/612] w-sd-omdurman                erank=  54.9 rot= 89.5 km=  513.4 (1.4s)
+[242/612] w-bo-santa-cruz-de-la-sierra erank=  80.8 rot= 88.5 km=  508.7 (2.6s)
+[243/612] w-ng-benin-city              erank= 128.3 rot=  1.5 km=  374.0 (1.2s)
+[244/612] w-ca-montreal                erank=  41.0 rot= 32.5 km=  378.2 (1.7s)
+[245/612] w-ve-maracaibo               erank= 107.4 rot= 78.5 km=  311.0 (1.2s)
+[246/612] w-by-minsk                   erank= 165.6 rot= 56.5 km=  211.1 (2.3s)
+[247/612] w-hu-budapest                erank= 108.4 rot= 47.5 km=  409.5 (1.9s)
+[248/612] w-pl-warsaw                  erank= 103.0 rot= 71.5 km=  318.6 (1.6s)
+[249/612] w-za-soweto                  erank= 101.1 rot= 89.5 km=  406.3 (1.2s)
+[250/612] w-mx-puebla                  erank=  32.7 rot= 28.5 km=  524.6 (1.5s)
+[251/612] w-ug-kampala                 erank= 172.8 rot= 82.5 km=  278.9 (2.1s)
+[252/612] w-ma-rabat                   erank= 103.2 rot= 39.5 km=  361.1 (1.4s)
+[253/612] w-br-recife                  erank=  92.3 rot= 34.5 km=  327.8 (1.4s)
+[254/612] w-mx-ecatepec-de-morelos     erank=  71.6 rot= 64.5 km=  410.6 (1.6s)
+[255/612] w-ve-valencia                erank=  54.0 rot= 82.5 km=  489.7 (1.3s)
+[256/612] w-ru-novosibirsk             erank=  63.9 rot= 35.5 km=  219.0 (1.0s)
+[257/612] w-mx-santiago-de-queretaro   erank=  59.1 rot= 70.5 km=  555.6 (1.8s)
+[258/612] w-mx-leon-de-los-aldama      erank=  60.5 rot= 13.5 km=  569.2 (1.5s)
+[259/612] w-ng-onitsha                 erank= 106.4 rot=  3.5 km=  273.7 (1.0s)
+[260/612] w-nz-auckland                erank=  96.9 rot= 14.5 km=  277.9 (1.5s)
+[261/612] w-zw-harare                  erank=  64.3 rot= 76.5 km=  237.8 (1.0s)
+[262/612] w-lr-monrovia                erank=  41.8 rot= 20.5 km=   70.3 (0.8s)
+[263/612] w-br-goiania                 erank=  60.8 rot= 73.5 km=  478.8 (1.5s)
+[264/612] w-us-san-antonio             erank=  69.7 rot= 89.5 km=  420.6 (1.3s)
+[265/612] w-se-stockholm               erank=  76.3 rot= 63.5 km=  418.8 (2.7s)
+[266/612] w-mx-ciudad-juarez           erank=  41.9 rot=  4.5 km=  532.5 (1.3s)
+[267/612] w-de-munich                  erank= 130.6 rot=  6.5 km=  331.8 (1.8s)
+[268/612] w-br-belem                   erank=  52.8 rot= 38.5 km=  191.9 (1.0s)
+[269/612] w-ru-yekaterinburg           erank=  44.6 rot= 78.5 km=  158.4 (1.1s)
+[270/612] w-br-porto-alegre            erank=  80.8 rot=  6.5 km=  218.3 (1.2s)
+[271/612] w-py-asuncion                erank=  26.8 rot= 32.5 km=  303.7 (1.1s)
+[272/612] w-mx-zapopan                 erank=  60.3 rot=  9.5 km=  459.0 (1.6s)
+[273/612] w-ua-kharkiv                 erank= 195.9 rot= 13.5 km=  221.4 (1.1s)
+[274/612] w-us-san-diego               erank=  29.6 rot= 89.5 km=  319.4 (1.4s)
+[275/612] w-it-milan                   erank=  75.4 rot= 89.5 km=  496.0 (2.4s)
+[276/612] w-td-n-djamena               erank=  53.3 rot= 89.5 km=  317.7 (1.1s)
+[277/612] w-mg-antananarivo            erank= 214.9 rot=  4.5 km=  224.3 (1.1s)
+[278/612] w-cm-douala                  erank= 129.0 rot= 13.5 km=  339.0 (1.2s)
+[279/612] w-us-dallas                  erank=  67.6 rot= 45.5 km=  418.6 (1.5s)
+[280/612] w-ne-niamey                  erank=  54.8 rot= 49.5 km=  330.3 (1.2s)
+[281/612] w-ca-calgary                 erank=  45.9 rot=  0.5 km=  371.5 (1.4s)
+[282/612] w-ly-tripoli                 erank=  61.6 rot= 89.5 km=  454.4 (1.3s)
+[283/612] w-cm-yaounde                 erank= 150.2 rot= 41.5 km=  340.3 (1.4s)
+[284/612] w-rs-belgrade                erank= 105.1 rot= 32.5 km=  365.3 (1.6s)
+[285/612] w-uy-montevideo              erank=  37.4 rot= 84.5 km=  312.3 (1.7s)
+[286/612] w-ru-nizhniy-novgorod        erank= 129.8 rot= 61.5 km=  133.2 (1.0s)
+[287/612] w-mz-maputo                  erank=  46.8 rot= 32.5 km=  298.7 (1.2s)
+[288/612] w-cd-kananga                 erank= 181.5 rot= 89.5 km=  241.3 (1.2s)
+[289/612] w-ru-kazan                   erank= 218.1 rot=  0.5 km=  179.3 (1.1s)
+[290/612] w-ve-barquisimeto            erank=  71.5 rot= 85.5 km=  381.4 (1.1s)
+[291/612] w-ht-port-au-prince          erank=  91.6 rot= 13.5 km=  302.9 (1.2s)
+[292/612] w-ke-mombasa                 erank= 118.7 rot=  0.5 km=  211.6 (1.1s)
+[293/612] w-co-barranquilla            erank=  76.4 rot= 22.5 km=  459.9 (1.3s)
+[294/612] w-ru-chelyabinsk             erank=  77.1 rot= 87.5 km=  204.4 (1.1s)
+[295/612] w-mx-merida                  erank=  81.4 rot=  6.5 km=  427.0 (1.3s)
+[296/612] w-do-santiago-de-los-caballeros erank=  83.8 rot=  7.5 km=  455.4 (1.4s)
+[297/612] w-mz-matola                  erank=  79.1 rot= 61.5 km=  232.5 (1.0s)
+[298/612] w-pe-arequipa                erank=  98.4 rot= 52.5 km=  451.0 (1.5s)
+[299/612] w-mr-nouakchott              erank=  59.3 rot= 56.5 km=  495.4 (1.5s)
+[300/612] w-cd-kisangani               erank= 114.2 rot= 84.5 km=  283.4 (1.1s)
+[301/612] w-ru-omsk                    erank= 105.5 rot= 84.5 km=  230.2 (1.1s)
+[302/612] w-sn-pikine                  erank=  44.4 rot= 36.5 km=  616.2 (1.6s)
+[303/612] w-ru-samara                  erank=  66.9 rot= 53.5 km=  155.1 (1.0s)
+[304/612] w-ng-aba                     erank=  66.5 rot=  5.5 km=  417.7 (1.4s)
+[305/612] w-gb-birmingham              erank= 110.7 rot= 28.5 km=  404.0 (1.5s)
+[306/612] w-dk-copenhagen              erank= 117.5 rot= 24.5 km=  357.0 (1.6s)
+[307/612] w-bg-sofia                   erank=  72.9 rot= 12.5 km=  404.1 (1.7s)
+[308/612] w-mx-monterrey               erank=  37.6 rot=  6.5 km=  514.0 (1.4s)
+[309/612] w-rw-kigali                  erank= 166.5 rot= 21.5 km=  250.4 (1.3s)
+[310/612] w-ru-rostov-on-don           erank=  49.2 rot= 73.5 km=  275.7 (1.2s)
+[311/612] w-sn-touba                   erank=  35.0 rot= 71.5 km=  618.4 (1.4s)
+[312/612] w-ru-ufa                     erank=  71.6 rot= 15.5 km=  167.9 (1.0s)
+[313/612] w-mw-lilongwe                erank= 183.4 rot= 29.5 km=  184.1 (1.0s)
+[314/612] w-ng-maiduguri               erank= 108.2 rot= 67.5 km=  355.7 (1.5s)
+[315/612] w-tz-mwanza                  erank= 186.1 rot= 17.5 km=  155.4 (1.0s)
+[316/612] w-ru-krasnoyarsk             erank=  56.4 rot= 47.5 km=   99.0 (1.0s)
+[317/612] w-no-oslo                    erank=  93.5 rot= 25.5 km=  329.2 (1.5s)
+[318/612] w-ng-ilorin                  erank= 139.5 rot=  8.5 km=  332.9 (1.3s)
+[319/612] w-pe-trujillo                erank=  57.5 rot= 40.5 km=  497.5 (1.5s)
+[320/612] w-za-gqeberha                erank=  94.4 rot= 65.5 km=  241.0 (1.1s)
+[321/612] w-ru-voronezh                erank= 187.7 rot= 85.5 km=  223.5 (1.1s)
+[322/612] w-ng-sokoto                  erank=  89.6 rot=  0.5 km=  395.8 (1.4s)
+[323/612] w-ng-jos                     erank= 103.5 rot=  8.5 km=  370.7 (1.3s)
+[324/612] w-ma-tangier                 erank=  60.7 rot=  1.5 km=  501.7 (1.8s)
+[325/612] w-mx-mexicali                erank=  48.5 rot= 89.5 km=  500.3 (1.3s)
+[326/612] w-cg-pointe-noire            erank=  84.6 rot= 47.5 km=  402.3 (1.3s)
+[327/612] w-br-maceio                  erank=  92.0 rot=  0.5 km=  282.4 (1.5s)
+[328/612] w-br-campinas                erank=  88.9 rot= 34.5 km=  517.8 (1.7s)
+[329/612] w-de-koeln                   erank= 120.6 rot= 33.5 km=  371.7 (1.9s)
+[330/612] w-ie-dublin                  erank= 108.2 rot=  6.5 km=  371.7 (1.7s)
+[331/612] w-be-brussels                erank=  64.6 rot= 18.5 km=  562.6 (2.3s)
+[332/612] w-ca-ottawa                  erank=  36.7 rot= 59.5 km=  361.5 (1.5s)
+[333/612] w-ru-volgograd               erank=  76.3 rot= 47.5 km=  256.6 (1.1s)
+[334/612] w-ca-edmonton                erank=  56.1 rot=  0.5 km=  303.8 (1.3s)
+[335/612] w-ua-odesa                   erank=  59.3 rot=  6.5 km=  143.3 (1.0s)
+[336/612] w-us-jacksonville            erank=  59.4 rot= 89.5 km=  350.3 (1.2s)
+[337/612] w-us-fort-worth              erank=  30.6 rot=  0.5 km=  383.5 (1.2s)
+[338/612] w-us-san-jose                erank=  34.2 rot= 59.5 km=  361.8 (1.4s)
+[339/612] w-gt-guatemala-city          erank=  50.9 rot=  8.5 km=  448.8 (1.5s)
+[340/612] w-ru-perm                    erank=  80.3 rot= 62.5 km=  180.5 (1.5s)
+[341/612] w-ng-zaria                   erank= 169.4 rot= 83.5 km=  292.5 (1.2s)
+[342/612] w-ve-ciudad-guayana          erank=  60.2 rot= 74.5 km=  448.8 (1.3s)
+[343/612] w-us-austin                  erank= 112.6 rot= 28.5 km=  359.8 (1.4s)
+[344/612] w-ni-managua                 erank=  70.8 rot=  4.5 km=  475.9 (1.5s)
+[345/612] w-ua-dnipro                  erank=  80.6 rot= 19.5 km=  193.7 (1.1s)
+[346/612] w-ng-enugu                   erank= 132.1 rot= 35.5 km=  340.9 (1.3s)
+[347/612] w-ar-rosario                 erank=  22.0 rot= 11.5 km=  249.8 (1.1s)
+[348/612] w-jm-kingston                erank= 131.6 rot=  4.5 km=  320.2 (1.2s)
+[349/612] w-mx-chihuahua               erank=  47.7 rot= 32.5 km=  561.1 (1.3s)
+[350/612] w-br-sao-luis                erank=  93.2 rot=  8.5 km=  260.8 (1.2s)
+[351/612] w-co-cartagena               erank=  64.5 rot= 11.5 km=  484.2 (1.4s)
+[352/612] w-us-columbus                erank=  56.2 rot=  3.5 km=  370.0 (1.3s)
+[353/612] w-us-charlotte               erank=  87.6 rot= 46.5 km=  368.6 (1.4s)
+[354/612] w-ng-warri                   erank= 131.3 rot= 11.5 km=  197.8 (1.0s)
+[355/612] w-it-naples                  erank=  82.6 rot= 82.5 km=  322.1 (1.4s)
+[356/612] w-br-campo-grande            erank=  66.1 rot= 28.5 km=  389.1 (1.2s)
+[357/612] w-bf-bobo-dioulasso          erank=  54.5 rot=  7.5 km=  391.1 (1.1s)
+[358/612] w-mw-blantyre                erank= 202.6 rot=  0.5 km=  196.6 (1.1s)
+[359/612] w-ua-donetsk                 erank=  63.4 rot= 89.5 km=  206.0 (1.0s)
+[360/612] w-ru-krasnodar               erank=  50.0 rot= 12.5 km=  263.4 (1.2s)
+[361/612] w-br-natal                   erank=  42.9 rot= 20.5 km=  348.6 (1.3s)
+[362/612] w-mx-cancun                  erank=  26.0 rot= 62.5 km=  616.0 (1.3s)
+[363/612] w-us-indianapolis            erank=  49.9 rot= 89.5 km=  349.5 (1.4s)
+[364/612] w-ao-mulenvos                erank=  54.5 rot= 84.5 km=  469.2 (1.4s)
+[365/612] w-fr-marseille               erank=  74.1 rot= 67.5 km=  469.2 (1.6s)
+[366/612] w-za-soshanguve              erank= 129.4 rot= 76.5 km=  347.3 (1.3s)
+[367/612] w-br-teresina                erank=  48.4 rot= 63.5 km=  470.7 (1.2s)
+[368/612] w-nl-rotterdam               erank=  74.1 rot= 71.5 km=  485.7 (1.7s)
+[369/612] w-br-duque-de-caxias         erank= 112.9 rot= 78.5 km=  419.1 (1.2s)
+[370/612] w-hn-tegucigalpa             erank=  81.4 rot=  4.5 km=  448.5 (10.4s)
+[371/612] w-ga-libreville              erank= 165.2 rot= 59.5 km=  208.3 (1.1s)
+[372/612] w-ru-saratov                 erank=  98.1 rot= 20.5 km=  242.9 (1.1s)
+[373/612] w-br-nova-iguacu             erank= 120.6 rot= 67.5 km=  356.8 (1.2s)
+[374/612] w-bo-cochabamba              erank=  61.2 rot=  3.5 km=  528.2 (1.7s)
+[375/612] w-br-sao-bernardo-do-campo   erank=  81.3 rot= 89.5 km=  435.4 (1.6s)
+[376/612] w-za-pietermaritzburg        erank=  89.3 rot= 46.5 km=  204.0 (1.1s)
+[377/612] w-ci-bouake                  erank= 108.6 rot= 89.5 km=  332.2 (1.1s)
+[378/612] w-es-valencia                erank=  54.6 rot= 61.5 km=  594.3 (1.8s)
+[379/612] w-br-joao-pessoa             erank=  63.7 rot= 89.5 km=  378.8 (1.3s)
+[380/612] w-cd-bukavu                  erank= 201.4 rot= 36.5 km=  176.6 (1.1s)
+[381/612] w-pl-krakow                  erank= 151.9 rot= 13.5 km=  297.6 (1.6s)
+[382/612] w-ve-barcelona               erank= 104.7 rot= 89.5 km=  365.2 (1.1s)
+[383/612] w-cf-bangui                  erank=  67.7 rot=  9.5 km=  229.9 (1.0s)
+[384/612] w-mx-hermosillo              erank=  45.1 rot= 82.5 km=  542.7 (1.3s)
+[385/612] w-mx-culiacan                erank=  64.8 rot= 86.5 km=  494.6 (1.3s)
+[386/612] w-dz-oran                    erank=  70.6 rot= 63.5 km=  401.9 (1.2s)
+[387/612] w-sl-freetown                erank= 135.8 rot= 20.5 km=  177.6 (1.1s)
+[388/612] w-hn-san-pedro-sula          erank=  61.4 rot=  6.5 km=  468.1 (1.1s)
+[389/612] w-us-seattle                 erank=  28.1 rot=  0.5 km=  390.9 (1.5s)
+[390/612] w-co-cucuta                  erank=  55.6 rot= 79.5 km=  525.2 (1.4s)
+[391/612] w-ru-tyumen                  erank= 107.8 rot= 43.5 km=  258.9 (1.1s)
+[392/612] w-br-sorocaba                erank= 100.9 rot= 64.5 km=  472.0 (1.6s)
+[393/612] w-br-uberlandia              erank=  70.9 rot= 34.5 km=  514.5 (1.3s)
+[394/612] w-ca-winnipeg                erank=  49.7 rot=  2.5 km=  352.3 (1.3s)
+[395/612] w-mx-morelia                 erank=  56.2 rot=  1.5 km=  551.0 (1.5s)
+[396/612] w-lv-riga                    erank= 126.7 rot= 43.5 km=  256.0 (1.4s)
+[397/612] w-mx-torreon                 erank=  26.7 rot=  0.5 km=  501.8 (1.5s)
+[398/612] w-us-denver                  erank=  37.1 rot=  0.5 km=  391.8 (2.0s)
+[399/612] w-br-osasco                  erank=  84.4 rot= 23.5 km=  445.1 (1.5s)
+[400/612] w-br-sao-jose-dos-campos     erank= 115.9 rot= 61.5 km=  259.0 (1.2s)
+[401/612] w-mx-san-luis-potosi         erank=  81.9 rot= 35.5 km=  609.4 (1.6s)
+[402/612] w-mx-aguascalientes          erank=  54.4 rot= 73.5 km=  571.1 (1.5s)
+[403/612] w-ca-mississauga             erank=  92.4 rot= 39.5 km=  270.5 (1.3s)
+[404/612] w-ua-lviv                    erank= 182.3 rot=  9.5 km=  251.8 (1.3s)
+[405/612] w-ua-zaporizhzhya            erank=  51.5 rot= 39.5 km=  159.3 (1.0s)
+[406/612] w-mx-saltillo                erank=  61.1 rot= 23.5 km=  499.5 (1.4s)
+[407/612] w-ru-tolyatti                erank=  24.8 rot=  8.5 km=   99.2 (0.9s)
+[408/612] w-do-santo-domingo-oeste     erank= 109.0 rot= 89.5 km=  415.3 (1.4s)
+[409/612] w-br-ribeirao-preto          erank=  39.8 rot= 38.5 km=  496.0 (1.3s)
+[410/612] w-ba-sarajevo                erank= 125.2 rot= 75.5 km=  293.3 (1.3s)
+[411/612] w-us-nashville               erank= 142.3 rot=  6.5 km=  330.0 (1.3s)
+[412/612] w-es-zaragoza                erank=  93.2 rot=  1.5 km=  421.1 (1.6s)
+[413/612] w-us-oklahoma-city           erank=  33.7 rot=  0.5 km=  330.9 (1.3s)
+[414/612] w-pl-wroclaw                 erank= 130.7 rot= 14.5 km=  279.8 (1.6s)
+[415/612] w-br-aracaju                 erank=  67.9 rot=  0.5 km=  463.6 (1.3s)
+[416/612] w-br-joinville               erank= 105.7 rot=  3.5 km=  269.8 (1.3s)
+[417/612] w-hr-zagreb                  erank=  89.6 rot= 86.5 km=  342.5 (1.6s)
+[418/612] w-ca-vancouver               erank=  20.2 rot=  1.5 km=  367.7 (1.6s)
+[419/612] w-fi-helsinki                erank=  76.9 rot= 86.5 km=  319.1 (2.0s)
+[420/612] w-mx-acapulco-de-juarez      erank=  76.6 rot= 82.5 km=  264.9 (1.2s)
+[421/612] w-ca-brampton                erank=  86.4 rot= 38.5 km=  260.1 (1.3s)
+[422/612] w-mx-tlaquepaque             erank=  49.6 rot=  7.5 km=  582.3 (1.6s)
+[423/612] w-de-frankfurt-am-main       erank= 113.4 rot= 86.5 km=  378.2 (1.9s)
+[424/612] w-it-palermo                 erank=  63.9 rot= 63.5 km=  341.5 (1.4s)
+[425/612] w-ru-izhevsk                 erank=  77.6 rot= 85.5 km=  157.0 (1.0s)
+[426/612] w-ve-maturin                 erank= 115.0 rot= 63.5 km=  288.9 (1.7s)
+[427/612] w-us-detroit                 erank=  39.9 rot= 64.5 km=  351.9 (1.5s)
+[428/612] w-br-jaboatao-dos-guararapes erank= 141.8 rot= 75.5 km=  226.2 (1.1s)
+[429/612] w-au-gold-coast              erank=  69.2 rot= 10.5 km=  129.3 (1.1s)
+[430/612] w-pl-lodz                    erank=  48.4 rot= 82.5 km=  240.2 (1.4s)
+[431/612] w-md-chisinau                erank=  95.5 rot= 44.5 km=  212.9 (1.1s)
+[432/612] w-ru-barnaul                 erank= 114.5 rot= 56.5 km=  243.6 (1.0s)
+[433/612] w-ru-ulyanovsk               erank= 114.5 rot= 59.5 km=  179.1 (1.0s)
+[434/612] w-gb-glasgow                 erank=  80.6 rot= 11.5 km=  433.9 (1.7s)
+[435/612] w-ru-irkutsk                 erank= 217.4 rot= 71.5 km=  194.4 (1.1s)
+[436/612] w-de-duesseldorf             erank= 108.4 rot=  0.5 km=  336.9 (1.7s)
+[437/612] w-ru-khabarovsk              erank= 118.5 rot= 47.5 km=  128.2 (1.0s)
+[438/612] w-de-stuttgart               erank=  95.5 rot= 64.5 km=  346.5 (1.6s)
+[439/612] w-ru-yaroslavl               erank= 171.0 rot=  1.5 km=  169.4 (1.1s)
+[440/612] w-se-gothenburg              erank= 108.8 rot= 74.5 km=  392.0 (1.7s)
+[441/612] w-ru-vladivostok             erank=  77.7 rot= 14.5 km=   83.4 (0.9s)
+[442/612] w-ua-kryvyy-rih              erank= 123.6 rot= 79.5 km=  143.5 (1.0s)
+[443/612] w-ru-makhachkala             erank=  68.5 rot= 37.5 km=  222.8 (1.0s)
+[444/612] w-de-essen                   erank= 100.1 rot= 75.5 km=  385.2 (1.7s)
+[445/612] w-es-malaga                  erank=  78.6 rot=  5.5 km=  391.6 (1.6s)
+[446/612] w-de-dortmund                erank=  91.7 rot= 83.5 km=  294.6 (1.4s)
+[447/612] w-it-genoa                   erank=  63.0 rot= 18.5 km=  372.9 (1.5s)
+[448/612] w-ru-tomsk                   erank= 110.3 rot=  0.5 km=  222.4 (1.1s)
+[449/612] w-gb-manchester              erank=  85.2 rot=  0.5 km=  490.8 (1.9s)
+[450/612] w-de-dresden                 erank= 121.7 rot= 32.5 km=  294.9 (1.6s)
+[451/612] w-au-newcastle               erank= 106.7 rot= 10.5 km=  154.8 (1.1s)
+[452/612] w-nz-christchurch            erank=  38.8 rot= 89.5 km=  321.7 (1.4s)
+[453/612] w-au-sunshine-coast          erank= 121.7 rot=  8.5 km=  207.8 (1.1s)
+[454/612] w-nz-wellington              erank=  99.4 rot= 22.5 km=  236.4 (1.3s)
+[455/612] w-nz-manukau-city            erank= 100.3 rot= 66.5 km=  246.6 (1.3s)
+[456/612] w-au-central-coast           erank= 107.6 rot=  9.5 km=  148.8 (1.0s)
+[457/612] w-au-logan-city              erank=  67.3 rot=  9.5 km=  246.4 (1.2s)
+[458/612] w-pg-port-moresby            erank= 176.4 rot= 44.5 km=   65.7 (0.9s)
+[459/612] w-au-geelong                 erank=  35.2 rot=  8.5 km=  254.2 (1.2s)
+[460/612] w-au-wollongong              erank=  62.2 rot=  9.5 km=  177.0 (1.0s)
+[461/612] w-au-hobart                  erank= 110.6 rot= 43.5 km=  204.2 (1.1s)
+[462/612] ph-quezon                    erank=  83.6 rot= 12.5 km=  381.6 (1.4s)
+[463/612] ph-manila                    erank=  88.9 rot= 46.5 km=  403.0 (1.4s)
+[464/612] ph-davao                     erank=  88.9 rot= 76.5 km=  260.0 (1.2s)
+[465/612] ph-caloocan                  erank=  61.7 rot=  1.5 km=  449.0 (1.4s)
+[466/612] ph-zamboanga                 erank= 108.6 rot= 87.5 km=  156.1 (1.1s)
+[467/612] ph-cebu                      erank=  90.7 rot= 50.5 km=  215.3 (1.3s)
+[468/612] ph-antipolo                  erank= 100.8 rot=  0.5 km=  391.9 (1.4s)
+[469/612] ph-pasig                     erank=  94.6 rot= 18.5 km=  382.0 (1.6s)
+[470/612] ph-dasmarinas                erank=  76.9 rot= 73.5 km=  489.9 (1.7s)
+[471/612] ph-cagayan-de-oro            erank= 135.3 rot= 12.5 km=  299.4 (1.3s)
+[472/612] ph-valenzuela                erank= 132.2 rot= 62.5 km=  305.4 (1.3s)
+[473/612] ph-general-santos            erank=  55.4 rot=  0.5 km=  274.8 (1.2s)
+[474/612] ph-paranaque                 erank=  99.9 rot= 17.5 km=  252.1 (1.3s)
+[475/612] ph-san-jose-del-monte        erank= 117.6 rot= 89.5 km=  348.2 (1.3s)
+[476/612] ph-bacoor                    erank= 106.5 rot= 88.5 km=  213.9 (1.2s)
+[477/612] ph-bacolod                   erank=  74.0 rot= 22.5 km=  260.7 (1.1s)
+[478/612] ph-las-pinas                 erank=  88.9 rot= 17.5 km=  299.4 (1.4s)
+[479/612] ph-binan                     erank= 100.8 rot= 76.5 km=  344.2 (1.3s)
+[480/612] ph-calamba                   erank= 123.5 rot= 68.5 km=  290.7 (1.2s)
+[481/612] ph-muntinlupa                erank=  81.8 rot=  0.5 km=  306.9 (1.3s)
+[482/612] ph-lapu-lapu                 erank= 151.7 rot= 50.5 km=  176.4 (1.3s)
+[483/612] ph-angeles                   erank= 107.4 rot= 27.5 km=  432.7 (1.3s)
+[484/612] ph-general-trias             erank=  80.6 rot= 77.5 km=  430.8 (1.4s)
+[485/612] ph-imus                      erank=  68.3 rot= 88.5 km=  510.4 (1.6s)
+[486/612] ph-iloilo                    erank= 122.0 rot= 37.5 km=  158.9 (1.1s)
+[487/612] ph-marikina                  erank=  90.7 rot=  0.5 km=  451.7 (1.5s)
+[488/612] ph-mandaluyong               erank=  96.6 rot= 38.5 km=  446.9 (1.7s)
+[489/612] ph-pasay                     erank=  56.1 rot= 62.5 km=  366.5 (1.4s)
+[490/612] ph-rodriguez                 erank= 148.8 rot= 32.5 km=   12.2 (0.7s)
+[491/612] ph-santa-rosa                erank=  71.8 rot= 77.5 km=  319.4 (1.3s)
+[492/612] ph-tarlac                    erank= 139.5 rot= 87.5 km=  311.0 (1.2s)
+[493/612] ph-taytay                    erank=  72.4 rot= 55.5 km=  433.7 (1.5s)
+[494/612] ph-malabon                   erank= 110.6 rot=  1.5 km=  274.1 (1.3s)
+[495/612] ph-lipa                      erank=  90.2 rot= 69.5 km=  341.5 (1.3s)
+[496/612] ph-cainta                    erank=  97.3 rot=  1.5 km=  471.3 (1.6s)
+[497/612] ph-butuan                    erank= 107.4 rot=  0.5 km=  220.4 (1.0s)
+[498/612] ph-cotabato                  erank=  94.6 rot= 28.5 km=  170.2 (1.0s)
+[499/612] ph-san-fernando              erank= 110.2 rot= 50.5 km=  314.0 (1.2s)
+[500/612] ph-baguio                    erank= 163.9 rot=  0.5 km=  290.4 (1.3s)
+[501/612] ph-iligan                    erank= 129.9 rot=  8.5 km=  189.1 (1.0s)
+[502/612] ph-cabuyao                   erank= 101.9 rot= 77.5 km=  335.4 (1.3s)
+[503/612] ph-mandaue                   erank= 156.8 rot= 50.5 km=  211.4 (1.2s)
+[504/612] ph-batangas                  erank= 119.5 rot= 89.5 km=  209.3 (1.1s)
+[505/612] ph-san-pedro                 erank=  88.0 rot= 80.5 km=  331.2 (1.3s)
+[506/612] ph-cabanatuan                erank= 114.4 rot= 68.5 km=  292.7 (1.1s)
+[507/612] ph-tanza                     erank= 103.3 rot= 72.5 km=  304.4 (1.3s)
+[508/612] ph-santa-maria               erank= 155.8 rot= 89.5 km=  215.9 (1.1s)
+[509/612] ph-binangonan                erank= 173.8 rot= 48.5 km=  135.4 (1.1s)
+[510/612] ph-puerto-princesa           erank=  96.2 rot=  1.5 km=  159.4 (1.0s)
+[511/612] ph-silang                    erank= 135.1 rot= 81.5 km=  197.7 (1.0s)
+[512/612] ph-mabalacat                 erank=  83.8 rot= 74.5 km=  251.7 (1.1s)
+[513/612] ph-san-pablo                 erank= 140.8 rot= 61.5 km=  250.4 (1.1s)
+[514/612] ph-tagum                     erank= 109.9 rot= 38.5 km=  343.0 (1.2s)
+[515/612] ph-lucena                    erank= 118.5 rot= 64.5 km=  312.7 (1.2s)
+[516/612] ph-san-mateo                 erank=  91.9 rot= 22.5 km=  394.0 (1.4s)
+[517/612] ph-malolos                   erank= 142.5 rot= 64.5 km=  210.2 (1.1s)
+[518/612] ph-olongapo                  erank= 135.1 rot=  2.5 km=  188.9 (1.1s)
+[519/612] ph-talisay                   erank= 124.6 rot= 40.5 km=  169.0 (1.2s)
+[520/612] ph-marilao                   erank=  71.5 rot= 62.5 km=  243.0 (1.2s)
+[521/612] ph-marawi                    erank= 213.3 rot= 63.5 km=  126.7 (1.0s)
+[522/612] ph-tacloban                  erank= 111.9 rot= 39.5 km=   77.1 (0.9s)
+[523/612] ph-navotas                   erank=  52.6 rot= 47.5 km=  239.7 (1.2s)
+[524/612] ph-ormoc                     erank= 140.9 rot= 18.5 km=  110.6 (0.9s)
+[525/612] ph-naic                      erank= 106.7 rot= 58.5 km=  207.6 (1.1s)
+[526/612] ph-meycauayan                erank=  79.6 rot= 62.5 km=  237.4 (1.2s)
+[527/612] ph-trece-martires            erank= 118.8 rot= 73.5 km=  331.0 (1.3s)
+[528/612] ph-sto.-tomas                erank= 102.9 rot= 66.5 km=  112.4 (1.0s)
+[529/612] ph-valencia                  erank= 191.4 rot= 24.5 km=  150.6 (0.9s)
+[530/612] ph-panabo                    erank=  98.5 rot=  0.5 km=  258.0 (1.1s)
+[531/612] ph-kabankalan                erank= 125.9 rot=  9.5 km=  128.4 (0.9s)
+[532/612] ph-legazpi                   erank= 138.8 rot=  0.5 km=  239.3 (1.1s)
+[533/612] ph-naga                      erank= 143.7 rot=  2.5 km=  206.2 (1.0s)
+[534/612] ph-tanauan                   erank=  99.8 rot= 64.5 km=  290.7 (1.1s)
+[535/612] ph-san-carlos                erank= 197.9 rot= 67.5 km=   93.8 (0.9s)
+[536/612] ph-toledo                    erank= 115.5 rot= 56.5 km=   61.5 (0.8s)
+[537/612] ph-pagadian                  erank=  73.8 rot= 77.5 km=  155.8 (1.0s)
+[538/612] ph-koronadal                 erank=  34.7 rot= 40.5 km=  241.7 (1.0s)
+[539/612] ph-malaybalay                erank= 116.6 rot= 58.5 km=  143.0 (1.0s)
+[540/612] ph-bago                      erank=  71.2 rot= 83.5 km=   94.5 (0.9s)
+[541/612] ph-digos                     erank=  55.2 rot=  3.5 km=  294.1 (1.1s)
+[542/612] ph-lubao                     erank= 174.1 rot= 20.5 km=   69.3 (0.9s)
+[543/612] ph-calbayog                  erank=  89.5 rot= 26.5 km=   71.3 (0.8s)
+[544/612] ph-sorsogon                  erank= 248.8 rot= 39.5 km=  101.1 (0.9s)
+[545/612] ph-mexico                    erank= 113.2 rot= 42.5 km=  167.8 (1.0s)
+[546/612] ph-roxas                     erank= 131.9 rot=  0.5 km=  236.0 (1.0s)
+[547/612] ph-san-miguel                erank= 178.7 rot= 69.5 km=  119.5 (0.9s)
+[548/612] ph-concepcion                erank= 146.0 rot= 31.5 km=  148.6 (0.9s)
+[549/612] ph-surigao                   erank=  67.1 rot= 16.5 km=   80.1 (0.9s)
+[550/612] ph-gen.-mariano-alvarez      erank= 140.3 rot= 86.5 km=  281.9 (1.3s)
+[551/612] ph-polomolok                 erank=  51.4 rot= 44.5 km=  215.4 (1.0s)
+[552/612] ph-dagupan                   erank= 157.6 rot= 65.5 km=  113.6 (1.0s)
+[553/612] ph-baliwag                   erank= 150.7 rot= 76.5 km=  258.2 (1.1s)
+[554/612] ph-sariaya                   erank= 102.0 rot= 72.5 km=  116.9 (0.9s)
+[555/612] ph-tuguegarao                erank= 120.8 rot= 84.5 km=  140.0 (1.0s)
+[556/612] ph-ilagan                    erank= 179.1 rot= 89.5 km=   74.4 (0.9s)
+[557/612] ph-pandi                     erank= 140.5 rot= 89.5 km=  181.7 (1.1s)
+[558/612] ph-capas                     erank= 181.0 rot= 67.5 km=  170.4 (1.0s)
+[559/612] ph-cadiz                     erank= 116.7 rot= 30.5 km=   69.2 (0.8s)
+[560/612] ph-danao                     erank= 195.2 rot= 34.5 km=   79.3 (0.9s)
+[561/612] ph-kidapawan                 erank= 151.2 rot= 13.5 km=  193.8 (1.0s)
+[562/612] ph-liloan                    erank= 167.8 rot= 36.5 km=  113.7 (1.1s)
+[563/612] ph-san-jose                  erank= 173.7 rot= 36.5 km=  154.7 (1.0s)
+[564/612] ph-mariveles                 erank= 170.4 rot=  0.5 km=   80.8 (0.9s)
+[565/612] ph-minglanilla               erank= 128.7 rot= 77.5 km=  204.1 (1.2s)
+[566/612] ph-consolacion               erank= 154.4 rot= 37.5 km=  274.6 (1.3s)
+[567/612] ph-datu-odin-sinsuat         erank= 159.8 rot= 50.5 km=   65.2 (0.8s)
+[568/612] ph-sagay                     erank= 165.7 rot= 25.5 km=   97.8 (0.9s)
+[569/612] ph-jolo                      erank= 115.8 rot= 30.5 km=  100.6 (0.9s)
+[570/612] ph-isabela                   erank= 206.7 rot=  0.5 km=   75.8 (0.8s)
+[571/612] ph-arayat                    erank= 227.4 rot= 15.5 km=  119.7 (0.9s)
+[572/612] ph-santiago                  erank= 141.3 rot= 70.5 km=  193.8 (0.9s)
+[573/612] ph-mati                      erank= 136.4 rot= 44.5 km=  107.5 (0.9s)
+[574/612] ph-calapan                   erank= 140.0 rot= 27.5 km=  125.0 (0.9s)
+[575/612] ph-bocaue                    erank=  98.8 rot= 62.5 km=  148.3 (1.0s)
+[576/612] ph-porac                     erank= 204.2 rot= 53.5 km=  104.0 (0.9s)
+[577/612] ph-floridablanca             erank= 168.3 rot= 37.5 km=  140.3 (0.9s)
+[578/612] ph-urdaneta                  erank= 152.9 rot= 88.5 km=  147.5 (0.9s)
+[579/612] ph-tanay                     erank= 199.9 rot= 68.5 km=   91.6 (0.9s)
+[580/612] ph-malasiqui                 erank= 232.4 rot= 63.5 km=   83.7 (0.9s)
+[581/612] ph-ozamiz                    erank=  79.9 rot= 47.5 km=   96.8 (0.9s)
+[582/612] ph-cauayan                   erank= 137.9 rot= 10.5 km=  154.0 (0.9s)
+[583/612] ph-san-jose-occidental-mindoro erank= 107.2 rot= 34.5 km=  131.3 (0.9s)
+[584/612] ph-la-trinidad               erank= 229.4 rot=  0.5 km=  157.7 (1.1s)
+[585/612] ph-dumaguete                 erank= 121.8 rot=  1.5 km=  147.4 (0.9s)
+[586/612] ph-nasugbu                   erank=  73.6 rot= 79.5 km=   93.8 (0.8s)
+[587/612] ph-tabaco                    erank= 121.4 rot= 76.5 km=   85.8 (0.8s)
+[588/612] ph-norzagaray                erank= 206.6 rot= 82.5 km=  105.0 (0.9s)
+[589/612] ph-carcar                    erank= 224.2 rot= 44.5 km=  110.8 (0.9s)
+[590/612] ph-gingoog                   erank=  76.1 rot= 76.5 km=   96.0 (0.8s)
+[591/612] ph-naga-cebu                 erank= 180.0 rot= 50.5 km=   60.0 (0.9s)
+[592/612] ph-daraga                    erank= 147.5 rot= 89.5 km=  157.0 (1.0s)
+[593/612] ph-guagua                    erank= 163.5 rot= 34.5 km=  116.3 (1.0s)
+[594/612] ph-candelaria                erank= 119.3 rot=  0.5 km=  174.8 (1.0s)
+[595/612] ph-talavera                  erank= 151.9 rot=  0.5 km=  111.9 (0.9s)
+[596/612] ph-silay                     erank=  86.3 rot= 24.5 km=  187.8 (1.0s)
+[597/612] ph-hagonoy                   erank= 188.3 rot=  6.5 km=   51.1 (0.9s)
+[598/612] ph-dipolog                   erank=  87.8 rot= 12.5 km=  110.4 (0.9s)
+[599/612] ph-angono                    erank=  99.5 rot= 55.5 km=  245.9 (1.2s)
+[600/612] ph-san-juan                  erank= 109.0 rot= 65.5 km=  412.4 (1.5s)
+[601/612] ph-magalang                  erank= 161.0 rot= 78.5 km=  164.5 (1.0s)
+[602/612] ph-san-carlos-negros-occidental erank=  97.8 rot= 36.5 km=  101.1 (0.8s)
+[603/612] ph-bongao                    erank= 194.3 rot= 74.5 km=   49.9 (0.8s)
+[604/612] ph-guimba                    erank= 131.9 rot=  1.5 km=  101.9 (0.9s)
+[605/612] ph-rosario                   erank= 117.9 rot= 82.5 km=  132.7 (0.9s)
+[606/612] ph-santo-tomas               erank=  53.3 rot=  0.5 km=  112.7 (0.9s)
+[607/612] ph-gapan                     erank= 174.7 rot= 76.5 km=  140.3 (0.9s)
+[608/612] ph-bayambang                 erank= 231.5 rot= 75.5 km=  116.4 (0.9s)
+[609/612] ph-santa-cruz                erank= 119.8 rot= 66.5 km=  116.4 (0.9s)
+[610/612] ph-bayawan                   erank=  96.2 rot= 26.5 km=   64.5 (0.8s)
+[611/612] ph-sultan-kudarat            erank= 234.7 rot=  0.5 km=   60.7 (0.9s)
+[612/612] ph-vigan                     erank= 145.4 rot= 15.5 km=  188.9 (1.0s)
+wrote /home/ubuntu/street-rank/data/clean/city_rank.csv (612 rows)

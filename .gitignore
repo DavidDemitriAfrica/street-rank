@@ -1,0 +1,6 @@
+__pycache__/
+run_full.log
+# Raw Overpass responses are large; rebuild with pipeline/run_all.py.
+# Every fetch is recorded in data/provenance.jsonl.
+data/raw/overpass/*.json
+data/interim/

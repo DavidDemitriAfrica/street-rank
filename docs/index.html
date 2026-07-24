@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Street rank: how structured is your city?</title>
+<meta name="description" content="Some cities follow a few clear street directions. Others are curves, interruptions, and overlapping grids. We measure the difference with one number, the effective rank, for 1,000+ cities.">
+<meta property="og:title" content="Street rank: how structured is your city?">
+<meta property="og:description" content="A simple grid needs few stripe patterns to reconstruct. An irregular plan needs many. One number per city: the effective rank.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daviddemitriafrica.github.io/street-rank/">
+<meta property="og:image" content="https://daviddemitriafrica.github.io/street-rank/assets/rank_reconstruction.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<style>
+  :root {
+    color-scheme: light;
+    --surface: #fcfcfb; --surface-2: #f6f5f2; --line: #e5e4e0;
+    --ink: #171614; --ink-2: #52514e; --ink-3: #8a8880;
+    --accent: #2a7ff0; --accent-deep: #093a80; --warm: #b4552d;
+    --coral: #e8794f; --navy: #24435c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--surface); color: var(--ink);
+    font: 16px/1.6 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 22px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
+  .topbar { display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0 0; font-size: .9rem; }
+  .topbar .brand { color: var(--ink-3); letter-spacing: .06em; text-transform: uppercase;
+    font-size: .74rem; font-weight: 600; }
+  .topbar nav a { color: var(--ink-2); text-decoration: none; margin-left: 16px; }
+  .topbar nav a:hover { color: var(--accent); }
+  header.hero { padding: 54px 0 8px; }
+  .hero h1 { font-size: clamp(1.7rem, 4.4vw, 2.9rem); line-height: 1.12; margin: 0 0 18px; }
+  .hero h1 em { font-style: normal; color: var(--accent-deep);
+    background: linear-gradient(transparent 68%, #cde2fb 68%); }
+  .hero .dek { color: var(--ink-2); font-size: 1.08rem; margin: 0 0 14px; }
+  .hero .aside { color: var(--ink-2); font-size: .95rem;
+    border-left: 3px solid var(--line); padding: 2px 0 2px 14px; margin: 0 0 26px; }
+  .heroviz { border: 1px solid var(--line); border-radius: 14px;
+    background: #fff; padding: 14px 14px 6px; margin: 4px 0 30px;
+    box-shadow: 0 1px 3px rgba(20,20,18,.05), 0 8px 28px rgba(20,20,18,.05); }
+  .heromosaic { display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; }
+  @media (max-width: 640px) { .heromosaic { grid-template-columns: repeat(2, 1fr); } }
+  .tile { position: relative; aspect-ratio: 1; border: 1px solid var(--line);
+    border-radius: 10px; overflow: hidden; background: #fff; }
+  .tile img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .tile img.top { opacity: 0; }
+  .tile img.top.fading { opacity: 1; transition: opacity .26s linear; }
+  .tilecap { font-size: .74rem; color: var(--ink-2); margin: 4px 2px 8px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-variant-numeric: tabular-nums; }
+  .tilecap b { color: var(--ink); font-weight: 500; }
+  .herocap { color: var(--ink-2); font-size: .9rem; margin: 8px 2px 8px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 38px; }
+  .cta a { text-decoration: none; padding: 9px 16px; border-radius: 8px; font-size: .93rem; font-weight: 500; }
+  .cta a.primary { background: var(--accent); color: #fff; }
+  .cta a.primary:hover { background: var(--accent-deep); }
+  .cta a.ghost { border: 1px solid var(--line); color: var(--ink); }
+  .cta a.ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; margin-bottom: 8px; }
+  .stat { background: var(--surface); padding: 16px 18px; }
+  .stat b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem;
+    font-weight: 600; color: var(--ink); }
+  .stat span { font-size: .82rem; color: var(--ink-2); }
+  section { padding: 34px 0 6px; }
+  h2 { font-size: 1.65rem; margin: 18px 0 10px; }
+  p, li { color: #33322f; }
+  .muted { color: var(--ink-2); font-size: .9rem; }
+
+  .maplayout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; }
+  @media (max-width: 860px) { .maplayout { grid-template-columns: 1fr; } }
+  .mapbox { position: relative; border: 1px solid var(--line); border-radius: 14px;
+    background: #fff; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(20,20,18,.05), 0 8px 28px rgba(20,20,18,.05); }
+  .mapbox svg { display: block; width: 100%; height: auto; }
+  .mapbtns { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column;
+    gap: 6px; z-index: 20; }
+  .mapbtns button { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 9px;
+    border: 1px solid var(--line); background: #fff; color: var(--ink-2); font-size: .95rem;
+    cursor: pointer; }
+  .mapbtns button:hover { border-color: var(--accent); color: var(--accent); }
+  .maplegend { position: absolute; left: 12px; bottom: 10px; background: rgba(255,255,255,.92);
+    border: 1px solid var(--line); border-radius: 9px; padding: 7px 11px; font-size: .76rem;
+    color: var(--ink-2); }
+
+  .citycard { border: 1px solid var(--line); border-radius: 14px; background: #fff;
+    padding: 16px; align-self: start; position: sticky; top: 14px;
+    max-height: calc(100vh - 28px); overflow-y: auto; }
+  .citycard img { width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+  .citycard h3 { margin: 10px 0 0; font-size: 1.15rem; }
+  .citycard .sub { color: var(--ink-2); font-size: .85rem; margin-bottom: 8px; }
+  .citycard .big { font-family: "Fraunces", Georgia, serif; font-size: 2rem; font-weight: 600; }
+  .citycard .big span { font-size: .8rem; color: var(--ink-2); font-family: "Inter", sans-serif;
+    font-weight: 400; display: block; margin-top: -4px; }
+  dl.metrics { display: grid; grid-template-columns: auto max-content; gap: 2px 12px;
+    font-size: .84rem; margin: 12px 0 0; }
+  dl.metrics dt { color: var(--ink-2); }
+  dl.metrics dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  .flagnote { font-size: .78rem; color: var(--warm); margin-top: 10px; }
+  .maplayout > .citycard { align-self: stretch; position: static;
+    max-height: none; }
+  .cardopen { width: 100%; margin-top: 12px; font: inherit; font-size: .85rem;
+    padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px;
+    background: #fff; color: var(--ink); cursor: pointer; }
+  .cardopen:hover { border-color: var(--accent); color: var(--accent); }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0; }
+  .controls label { font-size: .85rem; color: var(--ink-2); }
+  .controls select, .controls button { font: inherit; font-size: .88rem; padding: 6px 10px;
+    border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink);
+    cursor: pointer; }
+  .controls select:hover, .controls button:hover { border-color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .card { border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 8px;
+    text-align: left; cursor: pointer; font: inherit; color: var(--ink); }
+  .card:hover, .card:focus-visible { border-color: var(--accent); box-shadow: 0 2px 10px rgba(20,20,18,.08); }
+  .card img { width: 100%; border-radius: 6px; display: block; }
+  .card .nm { font-size: .78rem; font-weight: 500; margin-top: 6px; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; }
+  .card .val { font-size: .74rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .showmore { margin: 14px 0; }
+
+  .explainer { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 20px;
+    border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 18px; }
+  @media (max-width: 720px) { .explainer { grid-template-columns: 1fr; } }
+  .explainer img { width: 100%; max-width: 300px; border: 1px solid var(--line); border-radius: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .chips button { font: inherit; font-size: .85rem; padding: 6px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--ink); }
+  .chips button[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .explainer input[type=range] { width: 100%; accent-color: var(--accent); }
+  .explainer .readout { font-size: .95rem; margin: 10px 0 4px; }
+  .explainer .readout b { font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; }
+  .anchorrow { display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 10px; margin-top: 16px; }
+  @media (max-width: 640px) { .anchorrow { grid-template-columns: repeat(2, 1fr); } }
+  .anchor { text-align: center; font-size: .72rem; color: var(--ink-2); }
+  .anchor img { width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+  .anchor b { display: block; color: var(--ink); font-size: .85rem; }
+
+  .phband { border: 1px solid var(--line); border-left: 4px solid var(--coral);
+    border-radius: 14px; background: #fff; padding: 18px 18px 8px; }
+  .phrow { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 10px; margin: 10px 0 14px; }
+
+  .chartrow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    align-items: start; }
+  @media (max-width: 860px) { .chartrow { grid-template-columns: 1fr; } }
+  .chartbox { border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 14px; }
+  .chartbox h3 { margin: 2px 0 2px; font-size: 1.05rem; }
+  .chartbox .sub { font-size: .82rem; color: var(--ink-2); margin: 0 0 6px; }
+  .chartbox svg { display: block; width: 100%; height: auto; }
+  .legendrow { display: flex; flex-wrap: wrap; gap: 16px; font-size: .8rem; color: var(--ink-2); margin: 6px 0 0; }
+  .legendrow .key { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 5px; vertical-align: -1px; }
+
+  #tooltip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 10px; font-size: .8rem; box-shadow: 0 4px 16px rgba(20,20,18,.12);
+    z-index: 50; display: none; max-width: 250px; }
+  #tooltip b { font-size: .92rem; }
+  #tooltip .tv { font-variant-numeric: tabular-nums; }
+
+  figure { margin: 18px 0; }
+  figure img { max-width: 100%; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  figcaption { font-size: .85rem; color: var(--ink-2); margin-top: 6px; }
+
+  table.datatable { border-collapse: collapse; width: 100%; font-size: .84rem; margin: 12px 0; }
+  .datatable th, .datatable td { padding: 6px 10px; border-bottom: 1px solid var(--line);
+    text-align: right; font-variant-numeric: tabular-nums; }
+  .datatable th { cursor: pointer; color: var(--ink-2); font-weight: 600; white-space: nowrap;
+    user-select: none; }
+  .datatable th:hover { color: var(--accent); }
+  .datatable th:first-child, .datatable td:first-child { text-align: left; }
+  .datatable tr:hover td { background: var(--surface-2); }
+  .tablewrap { max-height: 480px; overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+  .datatable thead th { position: sticky; top: 0; background: var(--surface); }
+
+  .spectrum { display: flex; gap: 6px; overflow-x: auto; padding: 10px 2px 14px;
+    border: 1px solid var(--line); border-radius: 14px; background: #fff;
+    padding-left: 10px; padding-right: 10px; }
+  .spec { flex: 0 0 88px; text-align: center; font-size: .68rem; color: var(--ink-2);
+    cursor: pointer; border: none; background: none; padding: 0; font-family: inherit; }
+  .spec img { width: 88px; border: 1px solid var(--line); border-radius: 6px; display: block; }
+  .spec.ph img { border-color: var(--coral); }
+  .spec.synth img { border: 1.5px dashed var(--navy); }
+  .spec .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
+  .spec b { color: var(--ink); font-size: .74rem; }
+  .comparerow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .comparerow { grid-template-columns: 1fr; } }
+  .comparecard { border: 1px solid var(--line); border-radius: 14px; background: #fff; padding: 14px; }
+  .comparecard select { width: 100%; font: inherit; font-size: .9rem; padding: 7px 10px;
+    border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px;
+    background: #fff; }
+  .simrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+  .simrow .card { padding: 5px; }
+  .simhead { font-size: .8rem; color: var(--ink-2); margin-top: 14px; }
+  .spark { margin-top: 10px; }
+  .spark .cap { font-size: .72rem; color: var(--ink-3); }
+  dialog { border: 1px solid var(--line); border-radius: 14px; padding: 18px; max-width: 380px;
+    max-height: 88vh; overflow-y: auto;
+    box-shadow: 0 12px 48px rgba(20,20,18,.18); }
+  dialog::backdrop { background: rgba(23,22,20,.35); }
+  dialog .closex { float: right; border: none; background: none; font-size: 1.1rem;
+    cursor: pointer; color: var(--ink-3); }
+  footer { padding: 40px 0 46px; color: var(--ink-2); font-size: .88rem; }
+  footer a { color: var(--accent-deep); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span class="brand">Street rank</span>
+    <nav>
+      <a href="#rank">Rank</a>
+      <a href="#spectrum">Spectrum</a>
+      <a href="#map">Map</a>
+      <a href="#philippines">Philippines</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#charts">Charts</a>
+      <a href="#data">Data</a>
+      <a href="#cite">Cite</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <h1>How <em>structured</em> is your city?</h1>
+    <div class="heroviz" id="heroviz"
+         aria-label="Eight city street plans assembling from their stripe patterns">
+      <div class="heromosaic" id="heromosaic"></div>
+      <p class="herocap">Every tile is a city rebuilt from its stripe
+        patterns, a few at a time. Grid plans become clear first. Tangled
+        plans stay unclear until the end.
+        <a href="#rank">See how the number works &darr;</a></p>
+    </div>
+    <p class="dek">
+      Some cities follow a small number of clear street directions. Others
+      contain curves, interruptions, overlapping grids, and many local
+      patterns. This difference is easy to see, but difficult to express
+      with one number.
+    </p>
+    <p class="dek">
+      <strong>Why might we care about how structured a city is?</strong>
+      Well, street structure can shape how people move through a city, how
+      easily they can understand it, and how the city can grow or change. It
+      can also reflect planning decisions, geography, and long periods of
+      incremental development. Of course, no single pattern is always
+      better, but such differences may be valuable in regional and urban
+      policy.
+    </p>
+    <p class="dek">
+      To study this problem we draw the central streets of
+      <span id="ncities">612</span> cities (with special emphasis on the
+      Philippines) in the same 5 km square. We then rotate the image so that
+      its main street direction points up, and measure how many horizontal
+      and vertical stripe patterns are necessary to reconstruct it.
+    </p>
+    <p class="dek">
+      A simple grid needs few patterns. A more irregular plan needs many. We
+      call this number the <strong>effective rank</strong>, a simple concept
+      from linear algebra. A low rank indicates a plan with a small number
+      of strong, shared directions. A high rank indicates a plan with more
+      curves, interruptions, shifts, and competing directions.
+    </p>
+    <p class="aside">
+      For this project, streets include roads for vehicles and pedestrian
+      streets in OpenStreetMap. We do not include small paths. Therefore,
+      the measurement of cities like Fes does not include the narrow alleys
+      in its medina (though even with this limit, Fes remains near the
+      organic end of the scale).
+    </p>
+    <div class="cta">
+      <a class="primary" href="https://github.com/DavidDemitriAfrica/street-rank">Code and data on GitHub</a>
+      <a class="ghost" href="https://github.com/DavidDemitriAfrica/street-rank/blob/main/data/clean/city_rank.csv">city_rank.csv</a>
+      <a class="ghost" href="https://daviddemitriafrica.github.io/philippines-internal-migration/">The migration dataset</a>
+    </div>
+    <div class="stats" id="stats"></div>
+    <p class="muted" id="statnote"></p>
+  </header>
+
+  <section id="rank">
+    <h2>What does the number measure?</h2>
+    <p>
+      A street plan can look simple for several reasons: its streets can be
+      straight, or they can follow a small number of directions, or they can
+      continue across long distances without stopping or shifting. Effective
+      rank (Roy and Vetterli 2007) captures these properties together. To
+      see how, start with matrices.
+    </p>
+    <h3>First, matrices</h3>
+    <p>
+      A matrix is a grid of numbers. A black-and-white image is a matrix:
+      each pixel is one number. The rank of a matrix counts its independent
+      rows and columns. A matrix has low rank when many rows repeat the same
+      pattern, so a few rows are enough to build all the others.
+    </p>
+    <p>
+      The singular value decomposition, or SVD, makes this idea usable. It
+      writes any matrix as a stack of layers. Each layer combines one row
+      pattern with one column pattern, and each layer has a weight called a
+      singular value. Layers with large weights carry most of the
+      information. For an image, one layer looks like a set of horizontal
+      and vertical stripes.
+    </p>
+    <p>
+      The plain rank counts every layer with a weight above zero. That count
+      is fragile: a tiny weight counts as much as a large one. The effective
+      rank fixes this by counting layers in proportion to their weight. An
+      image built from two strong layers and hundreds of tiny ones has an
+      effective rank close to 2, even though its plain rank is large.
+    </p>
+    <h3>Then, street plans</h3>
+    <p>
+      A street plan drawn in pixels is a matrix, so all of this applies
+      directly. The SVD reconstructs the plan as a set of stripe patterns.
+      A regular street plan becomes recognizable after only a few patterns,
+      because many streets repeat the same rows and columns. An irregular
+      plan needs more patterns before its structure becomes clear.
+    </p>
+    <p>
+      Select a city below. Move the slider to change the number of patterns
+      in the reconstruction. A grid city becomes clear quickly because many
+      streets share the same directions and positions. An organic city stays
+      unclear for longer because its streets curve, stop, shift, or follow
+      many directions.
+    </p>
+    <div class="explainer">
+      <div>
+        <img id="exImg" src="" alt="Rank-limited reconstruction of the selected city">
+      </div>
+      <div>
+        <div class="chips" id="exChips" role="group" aria-label="Pick a city"></div>
+        <label for="exSlider" class="muted">Components kept</label>
+        <input type="range" id="exSlider" min="0" max="9" step="1" value="3">
+        <div class="readout" id="exReadout"></div>
+        <p class="muted" id="exNote"></p>
+      </div>
+    </div>
+    <p style="margin-top:18px">
+      The reconstruction shows how much of a street plan can be described
+      with a limited number of patterns. The component count and the
+      effective rank are related, but they are not the same quantity. The
+      component count tells you how many patterns are currently visible. The
+      effective rank summarises how the image information is distributed
+      across all patterns. A city with a low effective rank concentrates
+      much of its structure in a small number of patterns. A city with a
+      high effective rank spreads its structure across many patterns.
+    </p>
+  </section>
+
+  <section id="synthetic">
+    <h2>What changes the rank?</h2>
+    <p>
+      Synthetic plans provide reference points for the scale. They let us
+      change one feature at a time and observe the result.
+    </p>
+    <p>
+      A perfect grid has a rank of approximately 2. A grid with unequal
+      spacing also has a rank of approximately 2. Unequal spacing alone
+      therefore has little effect. The rank increases when streets:
+    </p>
+    <ul>
+      <li>stop before they cross the full image</li>
+      <li>shift to the side</li>
+      <li>curve</li>
+      <li>follow several different directions</li>
+    </ul>
+    <p>
+      A plan with four grids at different angles has a higher rank than one
+      aligned grid. A plan with spokes and rings has a much higher rank.
+      Random curves usually have ranks in the hundreds.
+    </p>
+    <p>
+      A short program generated each synthetic plan below. We measured these
+      plans with the same process that we use for real cities. The number
+      below each image is its effective rank.
+    </p>
+    <div class="anchorrow" id="anchors"></div>
+    <h3>Two limits of the measure</h3>
+    <p class="muted">
+      Effective rank measures the structure of the image, not only the
+      geometry of individual streets. The amount of street data in the image
+      can therefore affect the result. First, a larger amount of street data
+      can sometimes decrease the rank. A very full image can be approximated
+      by a small number of broad patterns, even when the individual streets
+      are irregular. The three random-curve examples differ only in total
+      street length, but they have different ranks. Second, we tested a
+      version that measures the same 200 km of streets in every city. This
+      adjustment controls for street length, but it can create gaps in
+      regular plans. These gaps increase the rank. The dataset includes the
+      adjusted result in a separate column. When you compare two cities,
+      also compare the total street length in each window.
+    </p>
+  </section>
+
+  <section id="spectrum">
+    <h2>Put every street plan on one scale</h2>
+    <p>The spectrum shows where each city lies between a simple grid and a
+       highly irregular plan. Cities on the left have lower effective ranks.
+       Their street structure is concentrated in fewer patterns. Cities on
+       the right have higher ranks. Their structure is distributed across
+       more patterns.</p>
+    <p>The synthetic plans appear at their measured positions and provide
+       visual reference points. Dashed borders identify synthetic plans.
+       Orange borders identify Philippine cities. Move the strip
+       horizontally to explore. Select a plan to open its city card.</p>
+    <p class="muted">The spectrum is useful for finding surprising
+       neighbours. Two cities can look different in detail but have similar
+       rank because their street plans require a similar amount of structure
+       to describe.</p>
+    <div class="spectrum" id="spectrumstrip" aria-label="All city plans in rank order"></div>
+  </section>
+
+  <section id="map">
+    <h2>Where are grid-like and organic plans found?</h2>
+    <p>The map shows the geographic distribution of effective rank. Light
+       points identify more grid-like plans. Dark points identify more
+       organic plans. The map can show whether similar street forms cluster
+       within regions, but it does not explain why those forms developed.</p>
+    <p>Move the pointer over a point to see the city and its values. Select
+       a point to open the full city card. Select PH to move the map to the
+       Philippines. Use the map to find broad geographic patterns. Use the
+       city cards and comparison view to examine individual cases.</p>
+    <div class="maplayout">
+      <div>
+        <div class="mapbox">
+          <div class="mapbtns">
+            <button id="zin" aria-label="Zoom in">+</button>
+            <button id="zout" aria-label="Zoom out">&minus;</button>
+            <button id="zworld" aria-label="Reset to world view">&#8962;</button>
+            <button id="zph" aria-label="Zoom to the Philippines">PH</button>
+          </div>
+          <svg id="worldmap" viewBox="0 0 960 500" role="img"
+               aria-label="World map of cities colored by street-plan rank"></svg>
+          <div class="maplegend" id="maplegend"></div>
+        </div>
+        <div class="citycard" id="quickcorr" style="position: static; margin-top: 16px"></div>
+      </div>
+      <div class="citycard" id="citycard" aria-live="polite"></div>
+    </div>
+    <h3 style="margin-top:26px">Read one city in detail</h3>
+    <p>
+      Each city card combines the street image with several measures of
+      urban form. The effective rank is the main measure in this project.
+      The other values help explain why a city receives its rank and how it
+      differs from cities with a similar score. For example:
+    </p>
+    <ul>
+      <li>Orientation order measures how strongly streets follow a small
+          number of directions.</li>
+      <li>Street length on the main axes shows how much of the network
+          follows the two strongest directions.</li>
+      <li>Straightness measures how directly streets connect their
+          endpoints.</li>
+      <li>Block spacing estimates the repeated distance between major
+          street lines.</li>
+      <li>Intersection density measures how many intersections occur in
+          each square kilometre.</li>
+      <li>Four-way junctions and dead ends describe the types of
+          connections in the network.</li>
+      <li>Street km in window shows how much street data contributes to the
+          measurement.</li>
+    </ul>
+    <p class="muted">
+      No single value fully describes a city. Read the measures together,
+      especially when you compare cities.
+    </p>
+  </section>
+
+  <section id="philippines">
+    <h2>A closer look at Philippine cities</h2>
+    <div class="phband">
+      <p>
+        The Philippine set contains <span id="nphcities">151</span> cities
+        and municipalities: the most populous places in the 2024 census,
+        plus Vigan. The
+        <a href="https://daviddemitriafrica.github.io/philippines-internal-migration/">Philippine Internal Migration Dataset</a>
+        supplies the city list, population values, and migration values.
+      </p>
+      <p>
+        The country contains a wide range of street forms. Koronadal is near
+        the grid-like end of the Philippine scale. Sorsogon is near the
+        organic end. Many cities combine a regular central grid with later
+        growth that follows roads, terrain, coastlines, or municipal
+        boundaries. The strips below show the two ends of the Philippine
+        distribution.
+      </p>
+      <div id="phstats" class="stats" style="margin: 6px 0 14px"></div>
+      <p class="muted" style="margin: 0 0 4px">Most grid-like plans</p>
+      <div class="phrow" id="phlow"></div>
+      <p class="muted" style="margin: 0 0 4px">Most organic plans</p>
+      <div class="phrow" id="phhigh"></div>
+      <p class="muted" id="phnote"></p>
+      <div class="controls">
+        <button id="phgallery">Browse all Philippine plans in the gallery</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Browse street plans as images</h2>
+    <p>The gallery makes it easier to compare the plans visually. Sort the
+       cities by effective rank to move from regular grids to more organic
+       forms. Filter the set to focus on Philippine cities or the full world
+       sample. Look for the features that increase rank:</p>
+    <ul>
+      <li>grids that change direction</li>
+      <li>roads that stop or shift</li>
+      <li>curved corridors</li>
+      <li>disconnected local layouts</li>
+      <li>several competing street orientations</li>
+    </ul>
+    <p class="muted">Select a city to open its full card and view the
+       associated measurements.</p>
+    <div class="controls">
+      <label for="sortsel">Sort by</label>
+      <select id="sortsel"></select>
+      <button id="dirbtn" aria-label="Toggle sort direction">ascending &uarr;</button>
+      <label for="kindsel">Show</label>
+      <select id="kindsel">
+        <option value="all">all cities</option>
+        <option value="ph">Philippine cities</option>
+        <option value="notph">world cities</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="showmore"><button id="morebtn">Show more</button></div>
+  </section>
+
+  <section id="compare">
+    <h2>Compare two cities directly</h2>
+    <p>Effective rank is most useful when it supports a visual comparison.
+       Enter a city name in each field. The two cards show the plans and
+       measurements together. Start with the effective rank. Then compare
+       orientation order, street length on the main axes, intersection
+       density, and total street length.</p>
+    <p class="muted">Cities can have similar ranks for different reasons.
+       One city can contain several clear grids at different angles. Another
+       can contain curves and many short local streets. The rank indicates
+       that both plans need a similar amount of structure to describe, but
+       the supporting measures show how that complexity arises. When the
+       total street lengths differ greatly, interpret the rank comparison
+       with care.</p>
+    <div class="comparerow">
+      <div class="comparecard">
+        <select id="cmpA" aria-label="First city"></select>
+        <div id="cmpAcard"></div>
+      </div>
+      <div class="comparecard">
+        <select id="cmpB" aria-label="Second city"></select>
+        <div id="cmpBcard"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="charts">
+    <h2>How does rank relate to other city measures?</h2>
+    <p>The charts test whether effective rank tracks familiar properties of
+       street networks and cities. Select a variable for the horizontal
+       axis. Each point represents one city. The note below the chart gives
+       the Spearman rank correlation.</p>
+    <p class="muted">A strong correlation means that cities with higher
+       values on one measure also tend to have consistently higher or lower
+       ranks. A weak correlation means that the two measures describe
+       different aspects of urban form. For example, effective rank and
+       orientation order are related because both respond to shared street
+       directions. They are not identical: orientation order measures
+       direction, while effective rank also responds to curves, offsets,
+       interruptions, and overlapping layouts. Correlation does not show
+       that one property causes the other.</p>
+    <div class="chartrow">
+      <div class="chartbox">
+        <h3>Select a correlate</h3>
+        <p class="sub">Each point is one city. The note below gives the
+          Spearman rank correlation.</p>
+        <div class="controls" style="margin: 4px 0 8px">
+          <label for="xsel">X axis</label>
+          <select id="xsel"></select>
+        </div>
+        <svg id="sc1" viewBox="0 0 460 380"></svg>
+        <div class="legendrow">
+          <span><span class="key" style="background:#24435c"></span>world cities</span>
+          <span><span class="key" style="background:#e8794f"></span>Philippine cities</span>
+          <span id="sc1note"></span>
+        </div>
+      </div>
+      <div class="chartbox">
+        <h3>Compare regions</h3>
+        <p class="sub">Each point represents one city. The black line shows
+          the median for the region. The Philippines appears as a separate
+          group.</p>
+        <img src="assets/region_strip.png" alt="Strip plot of effective rank by world region" style="width:100%; border:none; display:block">
+      </div>
+    </div>
+    <p class="muted">The spread within each region is often as important as
+       the difference between regional medians. Cities in the same region
+       can have very different plans because of geography, planning history,
+       age, growth, and the scale of the measured centre.</p>
+    <h3 style="margin-top:26px">The measure in one image</h3>
+    <p>Chicago becomes recognizable with approximately 32 patterns. Fes
+       remains unclear with 128 patterns. This comparison shows the central
+       idea of the measure. Chicago concentrates much of its street
+       structure in a small number of repeated directions. Fes distributes
+       its structure across many local patterns.</p>
+    <figure>
+      <img src="assets/rank_reconstruction.png"
+           alt="Rank 2, 8, 32, 128 and full reconstructions of Chicago and Fes. Chicago is recognizable by rank 32. Fes is still a smear.">
+      <figcaption>The measurement of Fes does not include the narrow alleys
+        in its medina. This omission makes the comparison conservative.
+        Including those alleys would probably add further fine-scale
+        structure.</figcaption>
+    </figure>
+  </section>
+
+  <section id="method">
+    <h2>From streets to one number</h2>
+    <p>
+      For each city, we get street data from OpenStreetMap in a fixed square
+      at the city centre. The square is 5 km wide and 5 km high. We convert
+      the coordinates to metres. We then calculate the main street direction
+      from a direction histogram. Street length determines the weight of
+      each direction. We rotate the street plan until the main direction
+      points up. We draw the rotated streets in an image of 1024 by 1024
+      pixels. Each street line is one pixel wide.
+    </p>
+    <p>
+      We then calculate the singular values of the image. The effective rank
+      is the participation ratio of the squared singular values. It
+      estimates how many patterns contain the image energy. This estimator
+      is the n2 measure in the effective-dimensionality tutorial by
+      <a href="https://doi.org/10.1080/00273171.2020.1743631">Del Giudice (2021)</a>.
+    </p>
+    <h3>Why rotate the plan?</h3>
+    <p>
+      SVD uses horizontal and vertical patterns. A regular grid that is
+      drawn at an angle can therefore appear more complex than the same grid
+      drawn upright. The Eixample grid in Barcelona has an angle of 45.5
+      degrees. We detect this direction and rotate the image before we
+      calculate its rank. Without this step, the measure would confuse
+      orientation with disorder.
+    </p>
+    <h3>Other measurements</h3>
+    <p>
+      The dataset also contains standard street-network measures:
+      intersection density, the proportion of four-way junctions, the
+      proportion of dead ends, street straightness, orientation entropy and
+      order, the proportion of street length on the two main axes, and block
+      spacing. We calculate block spacing from the main Fourier peak of the
+      street-plan image. The result estimates the distance between repeated
+      parallel street lines. The values agree with known examples. Manhattan
+      has an estimated spacing of 81 m. Barcelona has an estimated spacing
+      of 135 m, which includes an Eixample block and its adjacent street.
+      These measures are not alternatives to effective rank. They help
+      interpret it.
+    </p>
+  </section>
+
+  <section id="limits">
+    <h2>What the rank does not tell us</h2>
+    <p>
+      Effective rank is a measure of the street image inside one fixed
+      window. It is not a complete measure of a city.
+    </p>
+    <ul>
+      <li>OpenStreetMap coverage is not equally complete in all locations.
+          We add a flag to Philippine towns that have sparse street
+          data.</li>
+      <li>The 5 km window measures the city centre. It does not measure the
+          full metropolitan area. A city can have a regular centre and
+          irregular outer growth, or the reverse.</li>
+      <li>Population values apply to the full city, while the street
+          measurements apply only to the 5 km window. These values
+          therefore cover different geographic areas.</li>
+      <li>Some cities contain two or more grids with different
+          orientations. We align the image with the strongest grid. The
+          other grids then increase the rank. This is appropriate if the
+          goal is to measure the complexity of the full plan, but it means
+          that a city with several regular grids can receive a high
+          score.</li>
+      <li>We do not include paths with the OpenStreetMap footway tag. This
+          exclusion is important for medinas, pedestrian districts, and
+          informal settlements.</li>
+      <li>The effective rank also depends on the quantity of street data in
+          the image. Compare the street-length value when you compare
+          cities.</li>
+    </ul>
+    <p class="muted">
+      A high rank does not mean that a plan is bad, inefficient, or
+      unplanned. A low rank does not mean that a plan is good. The number
+      describes geometric structure, not urban quality.
+    </p>
+  </section>
+
+  <section id="related">
+    <h2>How does this measure differ from existing ones?</h2>
+    <p>
+      Boeing (2019) measures the entropy of street directions. Effective
+      rank agrees with this measure in many cases because both detect
+      whether streets follow a small number of common directions. Effective
+      rank also responds to features that direction entropy does not fully
+      capture. These include street endings, offsets, curves, and multiple
+      grids with different positions.
+    </p>
+    <p>
+      Louf and Barthelemy (2014) classify cities by the shapes of their
+      blocks. Barrington-Leigh and Millard-Ball (2020) calculate a sprawl
+      index from street connections. The charts on this site include their
+      city-level values. Roy and Vetterli (2007) define the effective rank
+      of a matrix. Del Giudice (2021) reviews the family of
+      effective-dimensionality measures that includes the participation
+      ratio used here.
+    </p>
+    <p>
+      <a href="https://doi.org/10.1038/s42949-025-00262-4">Laziou and Lemoy (2025)</a>
+      measure the density structure of 1,593 cities. Density and order
+      describe different aspects of urban form. A street plan can be dense
+      and regular, dense and irregular, sparse and regular, or sparse and
+      irregular. We did not find earlier work that measures a street plan
+      from the effective rank of its image. The
+      <a href="https://github.com/DavidDemitriAfrica/street-rank#related-work">project README</a>
+      contains the full references.
+    </p>
+  </section>
+
+  <section id="data">
+    <h2>Inspect the complete data</h2>
+    <p class="muted">The table contains the measurements for all cities.
+      Select a column heading to sort the rows. Use the table to find cities
+      with high or low values, check the measurements shown in the
+      visualisations, and identify cases for closer comparison. The
+      <a href="https://github.com/DavidDemitriAfrica/street-rank/blob/main/data/clean/city_rank.csv">repository contains the full CSV file</a>,
+      including all measurements and data-quality flags.</p>
+    <div class="tablewrap"><table class="datatable" id="datatable"></table></div>
+  </section>
+
+  <section id="cite">
+    <h2>Cite this project</h2>
+    <pre style="background:#fff; border:1px solid var(--line); border-radius:10px;
+      padding:14px 16px; font-size:.82rem; overflow-x:auto"><code>@misc{africa2026streetrank,
+  author = {Africa, David Demitri},
+  title  = {Street rank: how structured is your city?},
+  year   = {2026},
+  url    = {https://github.com/DavidDemitriAfrica/street-rank}
+}</code></pre>
+  </section>
+
+  <footer>
+    Streets &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, ODbL.
+    Philippine populations and migration from the
+    <a href="https://github.com/DavidDemitriAfrica/philippines-internal-migration">Philippine Internal Migration Dataset</a> (PSA census).
+    World city populations from <a href="https://www.geonames.org/">GeoNames</a>.
+    GDP per capita from the <a href="https://data.worldbank.org/indicator/NY.GDP.PCAP.CD">World Bank</a>.
+    Sprawl index (SNDi) from <a href="https://sprawlmap.org">Barrington-Leigh and Millard-Ball</a>.
+    Code MIT: <a href="https://github.com/DavidDemitriAfrica/street-rank">DavidDemitriAfrica/street-rank</a>.
+  </footer>
+</div>
+
+<div id="tooltip" role="status"></div>
+<dialog id="citymodal"><button class="closex" aria-label="Close">&times;</button><div id="modalbody"></div></dialog>
+
+<script>
+const NAVY = "#24435c", CORAL = "#e8794f";
+const fmt0 = d3.format(",.0f"), fmt1 = d3.format(".1f"), fmt2 = d3.format(".2f"), pct = d3.format(".0%");
+const METRICS = [
+  ["erank", "effective rank", fmt1],
+  ["erank_norm", "rank at equal street length (see caveat)", fmt1],
+  ["k90", "components for 90% energy", fmt0],
+  ["orient_order", "orientation order (0 to 1)", fmt2],
+  ["grid_share", "street length on the main axes", pct],
+  ["straightness", "straightness", fmt2],
+  ["block_m", "block spacing (m)", v => v == null ? "—" : fmt0(v)],
+  ["intersection_km2", "intersections per km²", fmt0],
+  ["four_way_share", "four-way junctions", pct],
+  ["deadend_share", "dead ends", pct],
+  ["street_km", "street km in window", fmt0],
+  ["popAny", "population", v => v == null ? "—" : fmt0(v)],
+  ["gdp_pc", "GDP per person (US$)", v => v == null ? "—" : fmt0(v)],
+  ["sndi", "sprawl index (SNDi)", v => v == null ? "—" : fmt1(v)],
+];
+const tooltip = document.getElementById("tooltip");
+function showTip(ev, lines) {
+  tooltip.replaceChildren();
+  lines.forEach(([txt, strong]) => {
+    const div = document.createElement("div");
+    if (strong) { const b = document.createElement("b"); b.textContent = txt; div.appendChild(b); }
+    else { div.textContent = txt; div.className = "tv"; }
+    tooltip.appendChild(div);
+  });
+  tooltip.style.display = "block";
+  const pad = 14, w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+  let x = ev.clientX + pad, y = ev.clientY + pad;
+  if (x + w > innerWidth - 8) x = ev.clientX - w - pad;
+  if (y + h > innerHeight - 8) y = ev.clientY - h - pad;
+  tooltip.style.left = x + "px"; tooltip.style.top = y + "px";
+}
+function hideTip() { tooltip.style.display = "none"; }
+
+function shortName(d) {
+  return d.name.replace(/^City of /, "").replace(/ \(.*\)$/, "");
+}
+let MEDCUM = null, SIMDATA = null;
+const SIM_FEATS = [
+  d => d.erank != null ? Math.log(d.erank) : null,
+  d => d.orient_order,
+  d => d.four_way_share,
+  d => d.deadend_share,
+  d => d.straightness,
+  d => d.intersection_km2 != null ? Math.log(d.intersection_km2 + 1) : null,
+  d => d.grid_share,
+];
+function buildSim(cities) {
+  const cols = SIM_FEATS.map(f => cities.map(f));
+  const stats = cols.map(col => {
+    const v = col.filter(x => x != null && isFinite(x));
+    const m = d3.mean(v), sd = d3.deviation(v) || 1;
+    return [m, sd];
+  });
+  const z = cities.map((d, i) => cols.map((col, j) =>
+    col[i] == null || !isFinite(col[i]) ? null
+      : (col[i] - stats[j][0]) / stats[j][1]));
+  SIMDATA = { cities, z };
+}
+function similarTo(d, n) {
+  if (!SIMDATA) return [];
+  const i = SIMDATA.cities.indexOf(d);
+  if (i < 0) return [];
+  const zi = SIMDATA.z[i];
+  const scored = SIMDATA.cities.map((c, j) => {
+    if (j === i) return [c, Infinity];
+    let sum = 0, m = 0;
+    for (let f = 0; f < zi.length; f++) {
+      const a = zi[f], b = SIMDATA.z[j][f];
+      if (a != null && b != null) { sum += (a - b) ** 2; m++; }
+    }
+    return m >= 4 ? [c, sum / m] : [c, Infinity];
+  });
+  return scored.sort((p, q) => p[1] - q[1]).slice(0, n).map(p => p[0]);
+}
+function sparkline(d) {
+  const w = 244, h = 56, pad = 5;
+  const svg = d3.create("svg").attr("viewBox", `0 0 ${w} ${h}`)
+    .attr("width", "100%").attr("role", "img")
+    .attr("aria-label", "Energy against number of patterns");
+  const x = i => pad + i * (w - 2 * pad) / (d.cum.length - 1);
+  const y = v => h - pad - (v / 100) * (h - 2 * pad);
+  const line = pts => pts.map((v, i) => (i ? "L" : "M") + x(i) + "," + y(v)).join(" ");
+  if (MEDCUM) svg.append("path").attr("d", line(MEDCUM)).attr("fill", "none")
+    .attr("stroke", "#c3c2b7").attr("stroke-width", 1.3);
+  svg.append("path").attr("d", line(d.cum)).attr("fill", "none")
+    .attr("stroke", NAVY).attr("stroke-width", 2);
+  return svg.node();
+}
+function cityDetail(d) {
+  const root = document.createElement("div");
+  const img = document.createElement("img");
+  img.src = "thumbs/" + d.slug + ".png"; img.loading = "lazy";
+  img.alt = "Street plan of " + shortName(d);
+  root.appendChild(img);
+  const h = document.createElement("h3"); h.textContent = shortName(d); root.appendChild(h);
+  const sub = document.createElement("div"); sub.className = "sub";
+  sub.textContent = d.kind === "ph" && d.province ? d.province + ", Philippines" : d.country;
+  root.appendChild(sub);
+  const big = document.createElement("div"); big.className = "big";
+  big.textContent = fmt1(d.erank);
+  const bl = document.createElement("span");
+  bl.textContent = "effective rank"; big.appendChild(bl);
+  root.appendChild(big);
+  const dl = document.createElement("dl"); dl.className = "metrics";
+  METRICS.slice(1).forEach(([k, label, f]) => {
+    const v = d[k];
+    if (v == null && !["block_m", "popAny", "gdp_pc", "sndi"].includes(k)) return;
+    const dt = document.createElement("dt"); dt.textContent = label;
+    const dd = document.createElement("dd"); dd.textContent = f(v);
+    dl.appendChild(dt); dl.appendChild(dd);
+  });
+  root.appendChild(dl);
+  if (d.cum) {
+    const wrap = document.createElement("div"); wrap.className = "spark";
+    wrap.appendChild(sparkline(d));
+    const cap = document.createElement("div"); cap.className = "cap";
+    cap.textContent = "Energy at 1 to 256 patterns. The gray line is the median city.";
+    wrap.appendChild(cap);
+    root.appendChild(wrap);
+  }
+  const sims = similarTo(d, 4);
+  if (sims.length) {
+    const head = document.createElement("div"); head.className = "simhead";
+    head.textContent = "Plans like this one:";
+    root.appendChild(head);
+    const row = document.createElement("div"); row.className = "simrow";
+    sims.forEach(c => {
+      const btn = document.createElement("button"); btn.className = "card";
+      const img = document.createElement("img");
+      img.src = "thumbs/" + c.slug + ".png"; img.loading = "lazy";
+      img.alt = "Street plan of " + shortName(c);
+      const nm = document.createElement("div"); nm.className = "nm";
+      nm.textContent = shortName(c);
+      btn.append(img, nm);
+      btn.addEventListener("click", () => openModal(c));
+      row.appendChild(btn);
+    });
+    root.appendChild(row);
+  }
+  const notes = { sparse_osm: "OpenStreetMap data is thin here. Use with care.",
+    norm_short: "This city has less than 200 km of streets. The two rank numbers are the same.",
+    centroid_fallback: "The center point is the centroid of the municipality polygon." };
+  const msgs = (d.flag || "").split(";").map(f => notes[f]).filter(Boolean);
+  if (msgs.length) {
+    const fl = document.createElement("div"); fl.className = "flagnote";
+    fl.textContent = "⚠ " + msgs.join(" ");
+    root.appendChild(fl);
+  }
+  return root;
+}
+const modal = document.getElementById("citymodal");
+modal.querySelector(".closex").addEventListener("click", () => modal.close());
+modal.addEventListener("click", e => { if (e.target === modal) modal.close(); });
+function openModal(d) {
+  document.getElementById("modalbody").replaceChildren(cityDetail(d));
+  modal.showModal();
+}
+function spearman(x, y) {
+  const n = x.length;
+  const rank = a => {
+    const idx = a.map((v, i) => [v, i]).sort((p, q) => p[0] - q[0]);
+    const r = new Array(n);
+    idx.forEach(([, i], j) => r[i] = j + 1);
+    return r;
+  };
+  const rx = rank(x), ry = rank(y);
+  const mx = (n + 1) / 2;
+  let num = 0, dx = 0, dy = 0;
+  for (let i = 0; i < n; i++) {
+    num += (rx[i] - mx) * (ry[i] - mx);
+    dx += (rx[i] - mx) ** 2; dy += (ry[i] - mx) ** 2;
+  }
+  return num / Math.sqrt(dx * dy);
+}
+
+// Hero mosaic: independent of the main data load, starts immediately.
+fetch("hero/manifest.json").then(r => r.json()).then(roster => {
+  const KS = [1, 2, 4, 8, 16, 32, 64, 128, 256, "full"];
+  const STEP = 320, HOLD = 1600, NTILES = 8;
+  const mosaic = document.getElementById("heromosaic");
+  if (!mosaic || !roster.length) return;
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  for (let i = roster.length - 1; i > 0; i--) {
+    const j = (i * 2654435761 % (i + 1));
+    [roster[i], roster[j]] = [roster[j], roster[i]];
+  }
+  const queue = [...roster];
+  let paused = false;
+  mosaic.addEventListener("pointerenter", () => { paused = true; });
+  mosaic.addEventListener("pointerleave", () => { paused = false; });
+
+  function src(city, k) { return "hero/" + city.slug + "-" + k + ".webp"; }
+  function preload(city) {
+    KS.forEach(k => { const im = new Image(); im.src = src(city, k); });
+  }
+
+  const tiles = [];
+  for (let i = 0; i < NTILES; i++) {
+    const fig = document.createElement("figure");
+    fig.style.margin = "0";
+    const box = document.createElement("div"); box.className = "tile";
+    const a = document.createElement("img");
+    const b = document.createElement("img"); b.className = "top";
+    a.alt = ""; b.alt = "";
+    box.append(a, b);
+    const cap = document.createElement("figcaption");
+    cap.className = "tilecap"; cap.textContent = "\u00a0";
+    fig.append(box, cap);
+    mosaic.appendChild(fig);
+    tiles.push({ a, b, cap, city: null, ki: 0 });
+  }
+
+  function setInstant(t, k) {
+    t.a.src = src(t.city, k);
+    t.b.classList.remove("fading");
+  }
+  function fadeTo(t, k) {
+    t.b.src = src(t.city, k);
+    t.b.classList.remove("fading");
+    void t.b.offsetWidth;
+    t.b.classList.add("fading");
+    setTimeout(() => {
+      t.a.src = t.b.src;
+      t.b.classList.remove("fading");
+    }, 300);
+  }
+  function caption(t, done) {
+    const c = t.city;
+    t.cap.replaceChildren();
+    const b = document.createElement("b"); b.textContent = c.label;
+    t.cap.appendChild(b);
+    t.cap.appendChild(document.createTextNode(
+      done ? " · rank " + c.erank : "\u2026"));
+  }
+  function takeCity(t) {
+    t.city = queue.shift();
+    queue.push(t.city);
+    preload(t.city);
+    t.ki = 0;
+    setInstant(t, KS[0]);
+    caption(t, false);
+  }
+  function step(t) {
+    if (!paused) {
+      t.ki += 1;
+      if (t.ki >= KS.length) {
+        takeCity(t);
+      } else {
+        fadeTo(t, KS[t.ki]);
+        caption(t, KS[t.ki] === "full");
+      }
+    }
+    setTimeout(() => step(t),
+      KS[t.ki] === "full" ? HOLD : STEP);
+  }
+
+  tiles.forEach((t, i) => {
+    takeCity(t);
+    if (reduced) {
+      setInstant(t, "full");
+      caption(t, true);
+    } else {
+      setTimeout(() => step(t), 400 + i * 430);
+    }
+  });
+});
+
+Promise.all([
+  fetch("data.json").then(r => r.json()),
+  fetch("anchors.json").then(r => r.json()),
+  fetch("explainer.json").then(r => r.json()),
+  fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(r => r.json()),
+]).then(([cities, anchors, explainer, world]) => {
+  cities.forEach(d => {
+    d.short = shortName(d);
+    d.popAny = d.pop2024 ?? d.pop;
+    if (d.erank_norm == null) d.erank_norm = d.erank;
+  });
+  // Cities with very thin OpenStreetMap coverage keep their rows and
+  // flags, but stay out of the showcase surfaces.
+  const solid = cities.filter(d => !(d.flag || "").includes("sparse_osm"));
+  const byRank = [...solid].sort((a, b) => a.erank - b.erank);
+  const ph = cities.filter(d => d.kind === "ph");
+  const phSolid = solid.filter(d => d.kind === "ph");
+  document.getElementById("ncities").textContent = fmt0(cities.length);
+  const nph = document.getElementById("nphcities");
+  if (nph) nph.textContent = fmt0(ph.length);
+  const withCum = cities.filter(d => d.cum);
+  if (withCum.length) {
+    MEDCUM = withCum[0].cum.map((_, i) =>
+      d3.median(withCum, d => d.cum[i]));
+  }
+  buildSim(cities);
+
+  // ---- stat tiles ----
+  function tiles(el, data) {
+    data.forEach(([v, l]) => {
+      const div = document.createElement("div"); div.className = "stat";
+      const b = document.createElement("b"); b.textContent = v;
+      const s = document.createElement("span"); s.textContent = l;
+      div.appendChild(b); div.appendChild(s); el.appendChild(div);
+    });
+  }
+  function tileName(d) {
+    return d.short + (d.kind === "ph" && d.province
+      ? ", " + d.province.split(" (")[0] : "");
+  }
+  tiles(document.getElementById("stats"), [
+    [fmt0(cities.length), "cities measured"],
+    [tileName(byRank[0]) + " · " + fmt0(byRank[0].erank), "most grid-like plan"],
+    [tileName(byRank.at(-1)) + " · " + fmt0(byRank.at(-1).erank), "most organic plan"],
+    [fmt0(d3.sum(cities, d => d.street_km)) + " km", "streets measured"],
+  ]);
+  document.getElementById("statnote").textContent =
+    "A low rank shows a grid plan. A high rank shows an organic plan. The " +
+    "scale goes from 2 (a perfect grid) to approximately 250 (random curves).";
+
+  // ---- explainer ----
+  const ks = explainer.ks;
+  let exCity = explainer.cities[0], exK = 3;
+  const chips = document.getElementById("exChips");
+  explainer.cities.forEach(c => {
+    const b = document.createElement("button");
+    b.textContent = c.label;
+    b.setAttribute("aria-pressed", c === exCity);
+    b.addEventListener("click", () => {
+      exCity = c;
+      chips.querySelectorAll("button").forEach(x =>
+        x.setAttribute("aria-pressed", x.textContent === c.label));
+      renderEx();
+    });
+    chips.appendChild(b);
+  });
+  const slider = document.getElementById("exSlider");
+  slider.addEventListener("input", () => { exK = +slider.value; renderEx(); });
+  function renderEx() {
+    const img = document.getElementById("exImg");
+    const readout = document.getElementById("exReadout");
+    readout.replaceChildren();
+    const b = document.createElement("b");
+    if (exK >= ks.length) {
+      img.src = "explainer/" + exCity.slug + "-full.png";
+      b.textContent = "all components";
+      readout.append(b, " show the full plan.");
+    } else {
+      const k = ks[exK];
+      img.src = "explainer/" + exCity.slug + "-" + k + ".png";
+      b.textContent = k + (k === 1 ? " component" : " components");
+      readout.append(b, " show " + fmt1(exCity.energy[String(k)]) +
+        "% of the plan of " + exCity.label + ".");
+    }
+    document.getElementById("exNote").textContent =
+      exCity.label + " has an effective rank of " + fmt1(exCity.erank)
+      ".";
+  }
+  slider.max = ks.length;
+  renderEx();
+
+  const anchorEl = document.getElementById("anchors");
+  anchors.forEach(a => {
+    const div = document.createElement("div"); div.className = "anchor";
+    const img = document.createElement("img");
+    img.src = "anchors/" + a.slug + ".png"; img.loading = "lazy";
+    img.alt = a.label;
+    const b = document.createElement("b"); b.textContent = fmt1(+a.erank);
+    const s = document.createElement("div"); s.textContent = a.label;
+    div.append(img, b, s);
+    anchorEl.appendChild(div);
+  });
+
+  // ---- spectrum strip ----
+  const strip = document.getElementById("spectrumstrip");
+  const merged = [
+    ...solid.map(d => ({ synth: false, erank: d.erank, d })),
+    ...anchors.map(a => ({ synth: true, erank: +a.erank, a })),
+  ].sort((p, q) => p.erank - q.erank);
+  merged.forEach(m => {
+    const btn = document.createElement("button");
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    const nm = document.createElement("div"); nm.className = "nm";
+    const val = document.createElement("b");
+    if (m.synth) {
+      btn.className = "spec synth";
+      img.src = "anchors/" + m.a.slug + ".png";
+      img.alt = m.a.label;
+      nm.textContent = m.a.label;
+    } else {
+      btn.className = "spec" + (m.d.kind === "ph" ? " ph" : "");
+      img.src = "thumbs/" + m.d.slug + ".png";
+      img.alt = "Street plan of " + m.d.short;
+      nm.textContent = m.d.short;
+      btn.addEventListener("click", () => openModal(m.d));
+    }
+    val.textContent = fmt1(m.erank);
+    btn.append(img, nm, val);
+    strip.appendChild(btn);
+  });
+
+  // ---- world map ----
+  const svg = d3.select("#worldmap");
+  const W = 960, H = 500;
+  const proj = d3.geoNaturalEarth1().fitExtent([[4, 4], [W - 4, H - 4]],
+    { type: "Sphere" });
+  const path = d3.geoPath(proj);
+  const g = svg.append("g");
+  g.append("path").attr("d", path({ type: "Sphere" }))
+    .attr("fill", "#ffffff").attr("stroke", "none");
+  const land = topojson.feature(world, world.objects.countries);
+  g.append("g").selectAll("path").data(land.features).join("path")
+    .attr("d", path).attr("fill", "#f1f0ec").attr("stroke", "#dcdbd5")
+    .attr("stroke-width", 0.5);
+  const color = d3.scaleSequential(
+    d3.interpolateRgbBasis(["#cde2fb", "#86b6ef", "#3987e5", "#1c5cab", "#0d366b"]))
+    .domain([Math.log(2), Math.log(d3.max(cities, d => d.erank))]);
+  g.append("g").selectAll("circle").data(cities).join("circle")
+    .attr("cx", d => proj([d.lon, d.lat])[0])
+    .attr("cy", d => proj([d.lon, d.lat])[1])
+    .attr("r", 3.0)
+    .attr("fill", d => color(Math.log(d.erank)))
+    .attr("stroke", "#fff").attr("stroke-width", 0.6);
+
+  const thumbLayer = g.append("g").attr("pointer-events", "none");
+  function updateThumbSizes() {
+    const sz = 34 / tf.k;
+    thumbLayer.selectAll("image")
+      .attr("width", sz).attr("height", sz)
+      .attr("x", d => proj([d.lon, d.lat])[0] - sz / 2)
+      .attr("y", d => proj([d.lon, d.lat])[1] - sz / 2);
+  }
+  function renderMapThumbs() {
+    if (tf.k < 9) { thumbLayer.selectAll("image").remove(); return; }
+    const x0 = tf.invertX(0), x1 = tf.invertX(W);
+    const y0 = tf.invertY(0), y1 = tf.invertY(H);
+    const vis = cities.filter(d => {
+      const [px, py] = proj([d.lon, d.lat]);
+      return px >= x0 && px <= x1 && py >= y0 && py <= y1;
+    }).sort((a, b) => (b.popAny ?? 0) - (a.popAny ?? 0)).slice(0, 40);
+    thumbLayer.selectAll("image").data(vis, d => d.slug).join("image")
+      .attr("href", d => "thumbs/" + d.slug + ".png");
+    updateThumbSizes();
+  }
+
+  const card = document.getElementById("citycard");
+  function cityCompact(d) {
+    const root = document.createElement("div");
+    const img = document.createElement("img");
+    img.src = "thumbs/" + d.slug + ".png"; img.loading = "lazy";
+    img.alt = "Street plan of " + shortName(d);
+    root.appendChild(img);
+    const h = document.createElement("h3"); h.textContent = shortName(d);
+    root.appendChild(h);
+    const sub = document.createElement("div"); sub.className = "sub";
+    sub.textContent = d.kind === "ph" && d.province
+      ? d.province + ", Philippines" : d.country;
+    root.appendChild(sub);
+    const big = document.createElement("div"); big.className = "big";
+    big.textContent = fmt1(d.erank);
+    const bl = document.createElement("span");
+    bl.textContent = "effective rank"; big.appendChild(bl);
+    root.appendChild(big);
+    const dl = document.createElement("dl"); dl.className = "metrics";
+    [["orient_order", "orientation order", fmt2],
+     ["four_way_share", "four-way junctions", pct],
+     ["deadend_share", "dead ends", pct],
+     ["straightness", "straightness", fmt2],
+     ["block_m", "block spacing (m)", v => v == null ? "—" : fmt0(v)],
+     ["street_km", "street km in window", fmt0]].forEach(([k, label, f]) => {
+      const dt = document.createElement("dt"); dt.textContent = label;
+      const dd = document.createElement("dd"); dd.textContent = f(d[k]);
+      dl.append(dt, dd);
+    });
+    root.appendChild(dl);
+    if (d.cum) {
+      const wrap = document.createElement("div"); wrap.className = "spark";
+      wrap.appendChild(sparkline(d));
+      const cap = document.createElement("div"); cap.className = "cap";
+      cap.textContent = "Energy at 1 to 256 patterns. Gray is the median city.";
+      wrap.appendChild(cap);
+      root.appendChild(wrap);
+    }
+    const btn = document.createElement("button"); btn.className = "cardopen";
+    btn.textContent = "Open the full city card";
+    btn.addEventListener("click", () => openModal(d));
+    root.appendChild(btn);
+    return root;
+  }
+  function selectCity(d) { card.replaceChildren(cityCompact(d)); }
+  (function quickCorr() {
+    const panel = document.getElementById("quickcorr");
+    const h = document.createElement("h3");
+    h.style.margin = "0 0 2px"; h.textContent = "What moves with rank";
+    const sub = document.createElement("div"); sub.className = "sub";
+    sub.textContent = "Spearman rank correlations with effective rank, " +
+      "all cities. Select a row to open the chart.";
+    panel.append(h, sub);
+    const dl = document.createElement("dl"); dl.className = "metrics";
+    [["orient_order", "orientation order"],
+     ["orient_entropy", "orientation entropy"],
+     ["four_way_share", "four-way junctions"],
+     ["deadend_share", "dead ends"],
+     ["straightness", "straightness"],
+     ["grid_share", "street length on the main axes"],
+     ["block_m", "block spacing (m)"],
+     ["street_km", "street km in window"],
+     ["intersection_km2", "intersections per km²"],
+     ["sndi", "sprawl index (SNDi)"],
+     ["popAny", "population"],
+     ["gdp_pc", "GDP per person"]].forEach(([k, label]) => {
+      const pts = cities.filter(d => d[k] != null && d.erank != null);
+      if (pts.length < 30) return;
+      const rho = spearman(pts.map(d => d[k]), pts.map(d => d.erank));
+      const dt = document.createElement("dt");
+      const a = document.createElement("a");
+      a.href = "#charts"; a.textContent = label;
+      a.style.color = "inherit";
+      a.addEventListener("click", () => {
+        const xsel = document.getElementById("xsel");
+        if ([...xsel.options].some(o => o.value === k)) {
+          xsel.value = k;
+          xsel.dispatchEvent(new Event("change"));
+        }
+      });
+      dt.appendChild(a);
+      const dd = document.createElement("dd");
+      dd.textContent = (rho >= 0 ? "+" : "") + fmt2(rho);
+      dl.append(dt, dd);
+    });
+    panel.appendChild(dl);
+  })();
+  selectCity(cities.find(d => d.slug === "ph-manila")
+    ?? cities.find(d => d.slug === "manila") ?? cities[0]);
+
+  let tf = d3.zoomIdentity;
+  const zoom = d3.zoom().scaleExtent([1, 60]).on("zoom", ev => {
+    tf = ev.transform;
+    g.attr("transform", tf);
+    g.selectAll("circle").attr("r", 3.0 / Math.sqrt(tf.k))
+      .attr("stroke-width", 0.6 / Math.sqrt(tf.k));
+    g.selectAll("path").attr("stroke-width", 0.5 / tf.k);
+    updateThumbSizes();
+  });
+  zoom.on("end.thumbs", renderMapThumbs);
+  svg.call(zoom);
+  d3.select("#zin").on("click", () => svg.transition().call(zoom.scaleBy, 1.7));
+  d3.select("#zout").on("click", () => svg.transition().call(zoom.scaleBy, 1 / 1.7));
+  d3.select("#zworld").on("click", () =>
+    svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity));
+  d3.select("#zph").on("click", () => {
+    const [x0, y0] = proj([116, 20.5]), [x1, y1] = proj([127.5, 4.5]);
+    const k = Math.min(55, 0.9 / Math.max((x1 - x0) / W, (y1 - y0) / H));
+    const t = d3.zoomIdentity.translate(W / 2, H / 2).scale(k)
+      .translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+    svg.transition().duration(700).call(zoom.transform, t);
+  });
+
+  const svgNode = svg.node();
+  function nearest(ev) {
+    const [mx, my] = d3.pointer(ev, svgNode);
+    const ix = tf.invertX(mx), iy = tf.invertY(my);
+    let best = null, bd = Infinity;
+    cities.forEach(d => {
+      const [px, py] = proj([d.lon, d.lat]);
+      const dd = (px - ix) ** 2 + (py - iy) ** 2;
+      if (dd < bd) { bd = dd; best = d; }
+    });
+    return Math.sqrt(bd) * tf.k <= 24 ? best : null;
+  }
+  svg.on("pointermove", ev => {
+    const d = nearest(ev);
+    if (!d) { hideTip(); svgNode.style.cursor = "grab"; return; }
+    svgNode.style.cursor = "pointer";
+    showTip(ev, [[d.short + (d.kind === "ph" ? " · PH" : ""), true],
+      ["effective rank " + fmt1(d.erank), false],
+      [(d.block_m ? "blocks ~" + fmt0(d.block_m) + " m · " : "") +
+        pct(d.four_way_share ?? 0) + " four-way", false]]);
+  }).on("pointerleave", hideTip)
+    .on("click", ev => { const d = nearest(ev); if (d) selectCity(d); });
+
+  const leg = document.getElementById("maplegend");
+  const legsvg = d3.create("svg").attr("width", 150).attr("height", 34);
+  const lg = legsvg.append("defs").append("linearGradient").attr("id", "lg");
+  d3.range(0, 1.01, 0.2).forEach(t => lg.append("stop")
+    .attr("offset", t)
+    .attr("stop-color", color(color.domain()[0] + t * (color.domain()[1] - color.domain()[0]))));
+  legsvg.append("rect").attr("x", 0).attr("y", 4).attr("width", 150).attr("height", 8)
+    .attr("rx", 4).attr("fill", "url(#lg)");
+  legsvg.append("text").attr("x", 0).attr("y", 28).attr("font-size", 11)
+    .attr("fill", "#52514e").text("grid-like");
+  legsvg.append("text").attr("x", 150).attr("y", 28).attr("text-anchor", "end")
+    .attr("font-size", 11).attr("fill", "#52514e").text("organic");
+  leg.appendChild(legsvg.node());
+
+  // ---- Philippines section ----
+  const phSorted = [...phSolid].sort((a, b) => a.erank - b.erank);
+  tiles(document.getElementById("phstats"), [
+    [fmt0(ph.length), "Philippine cities measured"],
+    [phSorted[0].short + " · " + fmt0(phSorted[0].erank), "most grid-like"],
+    [phSorted.at(-1).short + " · " + fmt0(phSorted.at(-1).erank), "most organic"],
+    [fmt0(d3.median(ph, d => d.erank)), "median rank"],
+  ]);
+  function phStrip(el, rows) {
+    rows.forEach(d => {
+      const btn = document.createElement("button"); btn.className = "card";
+      const img = document.createElement("img");
+      img.src = "thumbs/" + d.slug + ".png"; img.loading = "lazy";
+      img.alt = "Street plan of " + d.short;
+      const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = d.short;
+      const val = document.createElement("div"); val.className = "val";
+      val.textContent = fmt1(d.erank);
+      btn.append(img, nm, val);
+      btn.addEventListener("click", () => openModal(d));
+      el.appendChild(btn);
+    });
+  }
+  phStrip(document.getElementById("phlow"), phSorted.slice(0, 7));
+  phStrip(document.getElementById("phhigh"), phSorted.slice(-7).reverse());
+  const phMig = ph.filter(d => d.netmig_rate != null && d.erank != null);
+  if (phMig.length > 20) {
+    const rho = spearman(phMig.map(d => d.erank), phMig.map(d => d.netmig_rate));
+    document.getElementById("phnote").textContent =
+      "Across the " + phMig.length + " Philippine cities, the rank " +
+      "correlation between effective rank and net migration is " +
+      fmt2(rho) + ". " +
+      (Math.abs(rho) < 0.15
+        ? "In this dataset, cities with more organic plans do not " +
+          "consistently have higher or lower net migration. "
+        : "") +
+      "Select net migration in the chart below to inspect the " +
+      "relationship directly.";
+  }
+  document.getElementById("phgallery").addEventListener("click", () => {
+    document.getElementById("kindsel").value = "ph";
+    document.getElementById("kindsel").dispatchEvent(new Event("change"));
+    document.getElementById("gallery").scrollIntoView();
+  });
+
+  // ---- gallery ----
+  const sortsel = document.getElementById("sortsel");
+  METRICS.forEach(([k, label]) => {
+    const o = document.createElement("option"); o.value = k; o.textContent = label;
+    sortsel.appendChild(o);
+  });
+  let asc = true, shown = 84;
+  const dirbtn = document.getElementById("dirbtn");
+  dirbtn.addEventListener("click", () => {
+    asc = !asc;
+    dirbtn.textContent = asc ? "ascending ↑" : "descending ↓";
+    shown = 84; renderGrid();
+  });
+  sortsel.addEventListener("change", () => { shown = 84; renderGrid(); });
+  document.getElementById("kindsel").addEventListener("change", () => {
+    shown = 84; renderGrid();
+  });
+  document.getElementById("morebtn").addEventListener("click", () => {
+    shown += 168; renderGrid();
+  });
+  const grid = document.getElementById("grid");
+  function renderGrid() {
+    const k = sortsel.value, kind = document.getElementById("kindsel").value;
+    const fmt = METRICS.find(m => m[0] === k)[2];
+    const rows = cities
+      .filter(d => kind === "all" || (kind === "ph") === (d.kind === "ph"))
+      .filter(d => d[k] != null)
+      .sort((a, b) => asc ? a[k] - b[k] : b[k] - a[k]);
+    document.getElementById("morebtn").style.display =
+      rows.length > shown ? "" : "none";
+    grid.replaceChildren(...rows.slice(0, shown).map(d => {
+      const btn = document.createElement("button"); btn.className = "card";
+      const img = document.createElement("img");
+      img.src = "thumbs/" + d.slug + ".png"; img.loading = "lazy";
+      img.alt = "Street plan of " + d.short;
+      const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = d.short;
+      const val = document.createElement("div"); val.className = "val";
+      val.textContent = fmt(d[k]);
+      btn.append(img, nm, val);
+      btn.addEventListener("click", () => openModal(d));
+      btn.addEventListener("pointermove", ev => showTip(ev, [
+        [d.short + " · " + d.country, true],
+        ["effective rank " + fmt1(d.erank), false],
+        [pct(d.four_way_share ?? 0) + " four-way · " +
+          pct(d.deadend_share ?? 0) + " dead ends", false],
+      ]));
+      btn.addEventListener("pointerleave", hideTip);
+      return btn;
+    }));
+  }
+  renderGrid();
+
+  // ---- correlates chart ----
+  const XOPTS = [
+    ["orient_order", "orientation order", false],
+    ["orient_entropy", "orientation entropy", false],
+    ["four_way_share", "four-way junctions", false],
+    ["deadend_share", "dead ends", false],
+    ["straightness", "straightness", false],
+    ["grid_share", "street length on the main axes", false],
+    ["block_m", "block spacing (m)", false],
+    ["erank_norm", "rank at equal street length", false],
+    ["popAny", "population", true],
+    ["gdp_pc", "GDP per person", true],
+    ["street_km", "street km in window", false],
+    ["intersection_km2", "intersections per km²", false],
+    ["sndi", "sprawl index (SNDi)", false],
+    ["netmig_rate", "net migration per 1000 (PH only)", false],
+  ];
+  const xsel = document.getElementById("xsel");
+  XOPTS.forEach(([k, label]) => {
+    const o = document.createElement("option"); o.value = k; o.textContent = label;
+    xsel.appendChild(o);
+  });
+  xsel.addEventListener("change", renderScatter);
+  function renderScatter() {
+    const [xk, xlabel, xlog] = XOPTS.find(o => o[0] === xsel.value);
+    const pts = cities.filter(d => d[xk] != null && d.erank != null
+      && (!xlog || d[xk] > 0));
+    const svg = d3.select("#sc1");
+    svg.selectAll("*").remove();
+    const W2 = 460, H2 = 380, m = { t: 12, r: 14, b: 42, l: 52 };
+    const x = (xlog ? d3.scaleLog() : d3.scaleLinear())
+      .domain(d3.extent(pts, d => d[xk])).nice().range([m.l, W2 - m.r]);
+    const y = d3.scaleLog().domain(d3.extent(pts, d => d.erank)).nice()
+      .range([H2 - m.b, m.t]);
+    svg.append("g").attr("transform", `translate(0,${H2 - m.b})`)
+      .call(d3.axisBottom(x).ticks(6, xlog ? "~s" : undefined).tickSizeOuter(0))
+      .call(gg => gg.selectAll("text").attr("fill", "#52514e"))
+      .call(gg => gg.selectAll("line,path").attr("stroke", "#c3c2b7"));
+    svg.append("g").attr("transform", `translate(${m.l},0)`)
+      .call(d3.axisLeft(y).ticks(6, "~s").tickSizeOuter(0))
+      .call(gg => gg.selectAll("text").attr("fill", "#52514e"))
+      .call(gg => gg.selectAll("line,path").attr("stroke", "#c3c2b7"));
+    svg.append("g").selectAll("line").data(y.ticks(6)).join("line")
+      .attr("x1", m.l).attr("x2", W2 - m.r)
+      .attr("y1", d => y(d)).attr("y2", d => y(d))
+      .attr("stroke", "#eeede9").lower();
+    svg.append("text").attr("x", (m.l + W2 - m.r) / 2).attr("y", H2 - 8)
+      .attr("text-anchor", "middle").attr("font-size", 12).attr("fill", "#52514e")
+      .text(xlabel);
+    svg.append("text")
+      .attr("transform", `translate(13,${(m.t + H2 - m.b) / 2}) rotate(-90)`)
+      .attr("text-anchor", "middle").attr("font-size", 12).attr("fill", "#52514e")
+      .text("effective rank");
+    svg.append("g").selectAll("circle").data(pts).join("circle")
+      .attr("cx", d => x(d[xk])).attr("cy", d => y(d.erank)).attr("r", 3.6)
+      .attr("fill", d => d.kind === "ph" ? CORAL : NAVY)
+      .attr("fill-opacity", 0.7).attr("stroke", "#fff").attr("stroke-width", 0.5);
+    const rho = spearman(pts.map(d => d[xk]), pts.map(d => d.erank));
+    document.getElementById("sc1note").textContent =
+      "Spearman " + fmt2(rho) + ", n = " + pts.length;
+    const delaunay = d3.Delaunay.from(pts, d => x(d[xk]), d => y(d.erank));
+    svg.on("pointermove", ev => {
+      const [mx2, my2] = d3.pointer(ev);
+      const d = pts[delaunay.find(mx2, my2)];
+      if (Math.hypot(x(d[xk]) - mx2, y(d.erank) - my2) > 40) { hideTip(); return; }
+      const xf = XOPTS.find(o => o[0] === xk);
+      showTip(ev, [[d.short, true],
+        ["effective rank " + fmt1(d.erank), false],
+        [xlabel + ": " + (xlog ? fmt0(d[xk]) : fmt2(d[xk])), false]]);
+    }).on("pointerleave", hideTip)
+      .on("click", ev => {
+        const [mx2, my2] = d3.pointer(ev);
+        const d = pts[delaunay.find(mx2, my2)];
+        if (Math.hypot(x(d[xk]) - mx2, y(d.erank) - my2) <= 40) openModal(d);
+      });
+  }
+  renderScatter();
+
+  // ---- table ----
+  const table = document.getElementById("datatable");
+  const cols = [["name", "city", d => d.short], ["country", "country", d => d.country],
+    ...METRICS.map(([k, label, f]) => [k, label, d => d[k] == null ? "—" : f(d[k])])];
+  let sortKey = "erank", sortAsc = true;
+  function renderTable() {
+    const thead = document.createElement("thead");
+    const tr = document.createElement("tr");
+    cols.forEach(([k, label]) => {
+      const th = document.createElement("th");
+      th.textContent = label + (sortKey === k ? (sortAsc ? " ↑" : " ↓") : "");
+      th.addEventListener("click", () => {
+        sortAsc = sortKey === k ? !sortAsc : true; sortKey = k; renderTable();
+      });
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr);
+    const tbody = document.createElement("tbody");
+    const rows = [...cities].sort((a, b) => {
+      const av = a[sortKey], bv = b[sortKey];
+      if (typeof av === "string" || typeof bv === "string")
+        return (sortAsc ? 1 : -1) * String(av).localeCompare(String(bv));
+      return (sortAsc ? 1 : -1) * ((av ?? Infinity) - (bv ?? Infinity));
+    });
+    rows.forEach(d => {
+      const tr2 = document.createElement("tr");
+      cols.forEach(([k, , f]) => {
+        const td = document.createElement("td"); td.textContent = f(d); tr2.appendChild(td);
+      });
+      tr2.addEventListener("click", () => openModal(d));
+      tbody.appendChild(tr2);
+    });
+    table.replaceChildren(thead, tbody);
+  }
+  renderTable();
+
+  // ---- compare two cities ----
+  const bySlug = new Map(cities.map(d => [d.slug, d]));
+  const sortedCities = [...cities].sort((a, b) =>
+    a.short.localeCompare(b.short));
+  function bindCompare(selectId, cardId, initial) {
+    const sel = document.getElementById(selectId);
+    const panel = document.getElementById(cardId);
+    sortedCities.forEach(d => {
+      const o = document.createElement("option");
+      o.value = d.slug;
+      o.textContent = d.short + ", " + d.country;
+      sel.appendChild(o);
+    });
+    const render = d => panel.replaceChildren(cityDetail(d));
+    sel.addEventListener("change", () => {
+      const d = bySlug.get(sel.value);
+      if (d) render(d);
+    });
+    sel.value = initial.slug;
+    render(initial);
+  }
+  bindCompare("cmpA", "cmpAcard",
+    cities.find(d => d.slug === "chicago") ?? cities[0]);
+  bindCompare("cmpB", "cmpBcard",
+    cities.find(d => d.slug === "ph-manila") ?? cities[1]);
+}).catch(err => {
+  document.getElementById("stats").textContent =
+    "Could not load data: " + err.message;
+});
+</script>
+</body>
+</html>
